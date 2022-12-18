@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy-site:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -22,6 +22,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
+          extended: true
 
       - name: Build site with Hugo
         run: hugo --minify
