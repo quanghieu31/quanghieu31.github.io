@@ -1,0 +1,7 @@
+baseURL = 'https://hieudoan.github.io/'
+languageCode = 'en-us'
+title = 'Draft 1'
+
+theme = 'hugo-coder'
+[params]
+    colorScheme = 'dark'
