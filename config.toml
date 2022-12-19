@@ -1,7 +1,21 @@
-baseURL = 'https://hieudoan.github.io/'
+baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
-title = 'Draft 1'
+title = 'Hiếu Doãn'
 
 theme = 'hugo-coder'
 [params]
     colorScheme = 'dark'
+
+[menu]
+[[menu.main]]
+  identifier = 'writings'
+  name = 'ngẫm nghĩ'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/writings/'
+  weight=-110
+[[menu.main]]
+  name = 'chuyện nhỏ nhắn'
+  post = "<span class='alert'>New!</span>"
+  pre = "<i class='fa fa-road'></i>"
+  url = '/posts/'
+  weight=-100
