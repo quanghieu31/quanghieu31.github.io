@@ -1,8 +1,9 @@
 baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
-title = 'Hiếu Doãn'
+title = 'Hieu Doan'
 
 theme = 'hugo-coder'
+
 [params]
     colorScheme = 'dark'
 
@@ -25,3 +26,5 @@ theme = 'hugo-coder'
   pre = "<i class='fa fa-heart'></i>"
   url = '/others/'
   weight=-110
+
+  profilePicture = "images/main_menu.jpg"
