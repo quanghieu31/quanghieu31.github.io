@@ -1,11 +1,12 @@
 baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
 title = 'Doãn Hiếu'
-
 theme = 'hugo-coder'
 
 [params]
     colorScheme = 'dark'
+
+ coverImage = '/images/main_menu.png'
 
 [author]
   name = 'Doãn Hiếu'
