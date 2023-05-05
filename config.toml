@@ -7,6 +7,10 @@ theme = 'hugo-coder'
 [params]
     colorScheme = 'dark'
 
+[author]
+  name = 'Doãn Hiếu'
+  picture = '/images/main_menu.png'
+
 [menu]
 [[menu.main]]
   identifier = 'data'
@@ -26,4 +30,3 @@ theme = 'hugo-coder'
   pre = "<i class='fa fa-heart'></i>"
   url = '/others/'
   weight=-110
-
