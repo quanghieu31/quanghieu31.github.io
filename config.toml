@@ -8,14 +8,20 @@ theme = 'hugo-coder'
 
 [menu]
 [[menu.main]]
-  identifier = 'writings'
-  name = 'ngẫm nghĩ'
+  identifier = 'data'
+  name = 'data'
   pre = "<i class='fa fa-heart'></i>"
-  url = '/writings/'
+  url = '/data/'
   weight=-110
 [[menu.main]]
-  name = 'chuyện nhỏ nhắn'
-  post = "<span class='alert'>New!</span>"
-  pre = "<i class='fa fa-road'></i>"
-  url = '/posts/'
-  weight=-100
+  identifier = 'economics'
+  name = 'economics'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/economics/'
+  weight=-110
+[[menu.main]]
+  identifier = 'others'
+  name = 'others'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/others/'
+  weight=-110
