@@ -5,11 +5,12 @@ theme = 'hugo-coder-main'
 enableEmoji = true
 
 [params]
-# name = 'Doãn Hiếu'
-colorScheme = 'dark'
-info = "It's me practicing writing and explanining"
-avatarURL = "images/menu.png"
-# customCSS = ["/css/custom.css"]
+  # name = 'Doãn Hiếu'
+  colorScheme = 'dark'
+  info = "Here's me practicing writing and explanining things. Welcome!"
+  avatarURL = "images/menusmall.png"
+  customtextFontFamily = "Lora"
+  customheadingFontFamily = "Lora"
 
 [menu]
 [[menu.main]]
