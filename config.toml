@@ -1,16 +1,15 @@
 baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
 title = 'Doãn Hiếu'
-theme = 'hugo-coder'
+theme = 'hugo-coder-main'
+enableEmoji = true
 
 [params]
-    colorScheme = 'dark'
-
- coverImage = '/images/main_menu.png'
-
-[author]
-  name = 'Doãn Hiếu'
-  picture = '/images/main_menu.png'
+# name = 'Doãn Hiếu'
+colorScheme = 'dark'
+info = "It's me practicing writing and explanining"
+avatarURL = "images/menu.png"
+# customCSS = ["/css/custom.css"]
 
 [menu]
 [[menu.main]]
@@ -31,3 +30,15 @@ theme = 'hugo-coder'
   pre = "<i class='fa fa-heart'></i>"
   url = '/others/'
   weight=-110
+
+[[params.social]]
+name = "Github"
+icon = "fa fa-2x fa-github"
+weight = 1
+url = "https://github.com/quanghieu31"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "fa fa-2x fa-linkedin"
+weight = 2
+url = "https://www.linkedin.com/in/hieunguyen31/"
