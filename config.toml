@@ -1,16 +1,17 @@
 baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
-title = 'Doãn Hiếu'
+title = 'About'
 theme = 'hugo-coder-main'
 enableEmoji = true
 
 [params]
   # name = 'Doãn Hiếu'
+  font = "Default"
   colorScheme = 'dark'
-  info = "Here's me practicing writing and explanining things. Welcome!"
+  info = "Hiếu Doãn"
   avatarURL = "images/menusmall.png"
-  customtextFontFamily = "Lora"
-  customheadingFontFamily = "Lora"
+  # customtextFontFamily = "EBGaramond"
+  # customheadingFontFamily = "EBGaramond"
 
 [menu]
 [[menu.main]]
