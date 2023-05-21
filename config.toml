@@ -1,37 +1,30 @@
 baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
-title = 'About'
+title = 'Hiếu Doãn'
 theme = 'hugo-coder-main'
 enableEmoji = true
 
 [params]
-  # name = 'Doãn Hiếu'
+  author = 'Hiếu D.'
+  favicon_32 = "images/favicon.ico"
   font = "Default"
-  colorScheme = 'dark'
-  info = "Hiếu Doãn"
+  colorScheme = "dark"
   avatarURL = "images/menusmall.png"
-  # customtextFontFamily = "EBGaramond"
-  # customheadingFontFamily = "EBGaramond"
+  background = "images/background.jpg"
 
 [menu]
 [[menu.main]]
-  identifier = 'data'
-  name = 'data'
+  identifier = 'about'
+  name = 'about'
   pre = "<i class='fa fa-heart'></i>"
-  url = '/data/'
-  weight=-110
+  url = '/about/'
+  weight=1
 [[menu.main]]
-  identifier = 'economics'
-  name = 'economics'
+  identifier = 'posts'
+  name = 'posts'
   pre = "<i class='fa fa-heart'></i>"
-  url = '/economics/'
-  weight=-110
-[[menu.main]]
-  identifier = 'others'
-  name = 'others'
-  pre = "<i class='fa fa-heart'></i>"
-  url = '/others/'
-  weight=-110
+  url = '/posts/'
+  weight=2
 
 [[params.social]]
 name = "Github"
@@ -44,3 +37,9 @@ name = "LinkedIn"
 icon = "fa fa-2x fa-linkedin"
 weight = 2
 url = "https://www.linkedin.com/in/hieunguyen31/"
+
+[[params.social]]
+icon = "fa fa-2x fa-paper-plane"
+icon_pack = "fas"
+weight = 3
+url = "mailto:doanquanghieu.nguyen@gmail.com"
