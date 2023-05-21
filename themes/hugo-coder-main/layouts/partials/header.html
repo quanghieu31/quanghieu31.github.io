@@ -1,19 +1,24 @@
 <nav class="navigation">
+
+  <img style="position: absolute; clip: rect(30px, 1600px, 95px, 0px); left:0px; top:-35px; border:5px; z-index: -1; overflow:hidden" src="/images/bg.jpg" />
+  
   <section class="container">
 
-    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}">
+    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="color:black; font-size: 20px">
       {{ .Site.Title }}
+
     </a>
+
     {{ if or .Site.Menus.main .Site.IsMultiLingual }}
       <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
+      <label class="menu-button float-right" for="menu-toggle" >
         <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
         {{ with .Site.Menus.main}}
           {{ range sort . }}
             <li class="navigation-item">
-              <a class="navigation-link" href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}">{{ .Name }}</a>
+              <a class="navigation-link" href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}" style="color:white; font-size: 20px">{{ .Name }}</a>
             </li>
           {{ end }}
         {{ end }}

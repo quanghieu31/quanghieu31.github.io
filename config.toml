@@ -1,11 +1,11 @@
 baseURL = 'https://quanghieu31.github.io/'
 languageCode = 'en-us'
-title = 'Hiếu Doãn'
+title = 'Home'
 theme = 'hugo-coder-main'
 enableEmoji = true
 
 [params]
-  author = 'Hiếu D.'
+  author = 'Hiếu Doãn'
   favicon_32 = "images/favicon.ico"
   font = "Default"
   colorScheme = "dark"
