@@ -8,6 +8,27 @@
       </h1>
     </header>
 
+
+
+    <style>
+    .box {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+      margin-left: 30px;
+    }
+      </style>
+
+    <div class="box" style="float: right">
+      {{ with .Site.Params.avatarabout }}
+      <img src="{{ . | relURL }}" style="position: static; width:300px; z-index:-1"></div>
+      {{ end }}
+
     {{ .Content }}
+
+
+    
+
+
   </article>
 </section>
