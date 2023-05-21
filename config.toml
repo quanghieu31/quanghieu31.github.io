@@ -7,7 +7,7 @@ enableEmoji = true
 [params]
   author = 'Hiếu Doãn'
   favicon_32 = "images/favicon.ico"
-  colorScheme = "dark"
+  colorScheme = "white"
   avatarURL = "images/menusmall.png"
   avatarabout = "images/about/me2.jpg"
 
