@@ -7,7 +7,7 @@ enableEmoji = true
 [params]
   author = 'Hiếu Doãn'
   favicon_32 = "images/favicon.ico"
-  colorScheme = "dark"
+  colorScheme = "auto"
   avatarURL = "images/menusmall.png"
   avatarabout = "images/about/me2.jpg"
 
@@ -33,12 +33,12 @@ url = "https://github.com/quanghieu31"
 
 [[params.social]]
 name = "LinkedIn"
-icon = "fa fa-2x fa-linkedin"
+icon = "fa fa-2x fa-brands fa-linkedin"
 weight = 2
 url = "https://www.linkedin.com/in/hieunguyen31/"
 
 [[params.social]]
-icon = "fa fa-2x fa-paper-plane"
-icon_pack = "fas"
+name = "Email"
+icon = "fa fa-2x fa-envelope"
 weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"

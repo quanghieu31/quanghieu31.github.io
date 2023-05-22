@@ -1,10 +1,10 @@
 <nav class="navigation">
 
-  <img style="position: absolute; clip: rect(30px, 4000px, 95px, 0px); left:0px; top:-35px; width: 100%; border:5px; z-index: -1; overflow:hidden" src="/images/bg.jpg" />
+  <img style="position: absolute; clip: rect(30px, 4000px, 100px, 0px); left:0px; top:-35px; width: 100%; border:5px; z-index: -1; overflow:hidden" src="/images/bg.jpg" />
   
   <section class="container">
 
-    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="color:black; font-size: 20px">
+    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="color: #202020; font-size: 22px">
       {{ .Site.Title }}
 
     </a>
@@ -18,7 +18,7 @@
         {{ with .Site.Menus.main}}
           {{ range sort . }}
             <li class="navigation-item">
-              <a class="navigation-link" href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}" style="color:white; font-size: 20px">{{ .Name }}</a>
+              <a class="navigation-link" href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}" style="color: #202020; font-size: 22px">{{ .Name }}</a>
             </li>
           {{ end }}
         {{ end }}
