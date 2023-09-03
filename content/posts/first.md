@@ -1,5 +1,5 @@
 ---
-title: "Những chữ đầu tiên"
+title: "Những chữ đầu tiên / First few words"
 date: 2022-12-19T23:44:17+07:00
 draft: false
 ---
