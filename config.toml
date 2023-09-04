@@ -5,11 +5,11 @@ theme = 'hugo-coder-main'
 enableEmoji = true
 
 [params]
-  author = 'Hieu Nguyen'
+  author = 'Hiếu Doãn'
   favicon_32 = "images/favicon.ico"
   colorScheme = "auto"
   avatarURL = "images/menusmall.png"
-  avatarabout = "images/about/me.jpg"
+  avatarabout = "images/about/me2.jpg"
 
 [menu]
 [[menu.main]]
