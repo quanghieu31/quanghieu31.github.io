@@ -1,0 +1,10 @@
+$font-heading: {{$.Site.Params.heading_font | default "'Source Sans 3', sans-serif" }};
+$font-body: {{ $.Site.Params.body_font | default "'Source Sans 3', sans-serif" }};
+
+body {
+  font-family: $font-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: $font-heading; 
+}

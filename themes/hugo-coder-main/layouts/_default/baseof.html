@@ -5,6 +5,9 @@
 <head>
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
+
+  {{ partial "google-fonts" . }}
+  
 </head>
 
 {{ $csClass := "colorscheme-light" }}

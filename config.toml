@@ -42,3 +42,13 @@ name = "Email"
 icon = "fa fa-2x fa-envelope"
 weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"
+
+
+[params]
+  google_fonts = [
+    ["Fira Code", "400, 700"],
+    ["Open Sans", "400, 400i, 700, 700i"]
+  ]
+
+  heading_font = "Fira Code"
+  body_font = "Open Sans"

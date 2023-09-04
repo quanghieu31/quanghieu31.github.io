@@ -1,0 +1,6 @@
+$backgroundColor: {{ .Param "backgroundColor" }};
+$textColor: {{ .Param "textColor" }};
+body{
+  background-color:$backgroundColor;
+  color: $textColor;
+}
