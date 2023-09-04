@@ -10,6 +10,8 @@ enableEmoji = true
   colorScheme = "auto"
   avatarURL = "images/menusmall.png"
   avatarabout = "images/about/me.jpg"
+  custom_css = ["css/custom_style.css"]
+  googlefonts = "//fonts.googleapis.com/css?family=Merriweather|Fira+Mono|Droid+Sans"
 
 [menu]
 [[menu.main]]
@@ -42,8 +44,3 @@ name = "Email"
 icon = "fa fa-2x fa-envelope"
 weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"
-
-[params]
-    custom_css = ["css/custom_style.css"]
-
-googlefonts = "//fonts.googleapis.com/css?family=Merriweather|Fira+Mono|Droid+Sans"
