@@ -9,7 +9,7 @@ enableEmoji = true
   favicon_32 = "images/favicon.ico"
   colorScheme = "auto"
   avatarURL = "images/menusmall.png"
-  avatarabout = "images/about/me2.jpg"
+  avatarabout = "images/about/me.jpg"
 
 [menu]
 [[menu.main]]
