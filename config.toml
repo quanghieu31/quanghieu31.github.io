@@ -10,7 +10,7 @@ enableEmoji = true
   colorScheme = "auto"
   avatarURL = "images/menusmall.png"
   avatarabout = "images/about/me.jpg"
-  customCSS = ["static/custom.css"]
+  customCSS = ["css/custom.css"]
 
 [menu]
 [[menu.main]]
@@ -43,3 +43,9 @@ name = "Email"
 icon = "fa fa-2x fa-envelope"
 weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"
+
+[minify]
+  disable = ["CSS"]
+
+[partials]
+  head = "partials/head/custom-styles.html"

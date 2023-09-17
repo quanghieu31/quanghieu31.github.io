@@ -1,0 +1,13 @@
+{{/* Include custom CSS files */}}
+{{ with $styles := resources.Get "css/custom.css" }}
+  {{ if $.Site.IsServer }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+  {{ else }}
+    {{ with resources.Get "css/custom.css" | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" media="screen" />
+    {{ else }}
+      <!-- Handle the case where $styles is nil -->
+      <!-- You can add a default stylesheet here if needed -->
+    {{ end }}
+  {{ end }}
+{{ end }}

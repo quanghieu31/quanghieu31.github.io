@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Doãn Hiếu</title>
+    <title>Home</title>
     <link>https://quanghieu31.github.io/</link>
-    <description>Recent content on Doãn Hiếu</description>
+    <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Dec 2022 23:44:17 +0700</lastBuildDate><atom:link href="https://quanghieu31.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,18 @@
       <pubDate>Mon, 19 Dec 2022 23:44:17 +0700</pubDate>
       
       <guid>https://quanghieu31.github.io/posts/first/</guid>
-      <description>Hi! This is for Hieu in the future. Very nice working on your first web! I am proud of you, please don&amp;rsquo;t be skeptical of yourself, even though I bet that you are right now haha. Anyhow, if you feel so, remember that everything is going to be daijoubu.</description>
+      <description>Hi!Link to headingThis is for Hieu in the future. Very nice working on your first web! I am proud of you, please don&amp;rsquo;t be skeptical of yourself, even though I bet that you are right now haha. Anyhow, if you feel so, remember that everything is going to be daijoubu.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://quanghieu31.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://quanghieu31.github.io/about/</guid>
+      <description>Years ago, I planned to become an astronaut and play football on the moon. Time passed, plan changed. I am now working on data and policy with a dream of changing something for good.
+I develop this web to practice writing concisely and explaining complex things. In the long run, I would like to be better at machine learning applications in a development context and economic modelling.
+I am studying Computer Science and Public Policy at the University of Chicago.</description>
     </item>
     
   </channel>
