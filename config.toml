@@ -10,6 +10,7 @@ enableEmoji = true
   colorScheme = "auto"
   avatarURL = "images/menusmall.png"
   avatarabout = "images/about/me.jpg"
+  customCSS = ["static/custom.css"]
 
 [menu]
 [[menu.main]]
