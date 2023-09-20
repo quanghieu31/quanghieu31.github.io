@@ -1,9 +1,7 @@
 ---
-title: "About me"
+title: "Hi! I'm Hieu."
 type: "_default"
 ---
-
-Hi, I'm Hieu!
 
 Years ago, I planned to become an astronaut and play football on the moon. Time passed, plan changed. I am now working on data and policy with a dream of changing something for good.
 
