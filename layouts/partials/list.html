@@ -1,7 +1,7 @@
 <section class="container list">
   <header>
     <h1 class="title">
-      <a class="title-link" href="{{ .Permalink | safeURL }}"  style="font-size: 22px">
+      <a class="title-link" href="{{ .Permalink | safeURL }}"  style="font-size: 22px; margin-left: 75px">
         {{- if eq .Kind "term" -}}
           {{- i18n .Data.Plural 1 | title -}}
           {{- print ": " -}}
