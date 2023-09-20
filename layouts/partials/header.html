@@ -4,7 +4,7 @@
   
   <section class="container">
 
-    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="font-size: 22px">
+    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="font-size: 18px">
       {{ .Site.Title }}
 
     </a>
@@ -18,7 +18,7 @@
         {{ with .Site.Menus.main}}
           {{ range sort . }}
             <li class="navigation-item">
-              <a class="navigation-link" href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}" style="font-size: 22px">{{ .Name }}</a>
+              <a class="navigation-link" href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}" style="font-size: 18px">{{ .Name }}</a>
             </li>
           {{ end }}
         {{ end }}

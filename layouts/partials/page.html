@@ -2,7 +2,7 @@
   <article>
     <header>
       <h1 class="title">
-        <a class="title-link" href="{{ .Permalink | safeURL }}">
+        <a class="title-link" href="{{ .Permalink | safeURL }}" style="font-size: 22px">
           {{ .Title }}
         </a>
       </h1>
@@ -19,9 +19,9 @@
     }
       </style>
 
-    <div class="box" style="float: right">
+    <div class="box" style="float: inline-start">
       {{ with .Site.Params.avatarabout }}
-      <img src="{{ . | relURL }}" style="position: static; width:250px; z-index:-1"></div>
+      <img src="{{ . | relURL }}" style="position: static; width:200px; z-index:-1"></div>
       {{ end }}
 
     {{ .Content }}

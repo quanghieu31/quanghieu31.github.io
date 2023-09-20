@@ -8,20 +8,20 @@ enableEmoji = true
   author = 'Hieu Nguyen'
   favicon_32 = "images/favicon.ico"
   colorScheme = "auto"
-  avatarURL = "images/menusmall.png"
-  avatarabout = "images/about/me.jpg"
+  avatarURL = "images/about/me.jpg"
+  avatarabout = "images/about/me1.jpg"
   customCSS = ["css/custom.css"]
 
 [menu]
 [[menu.main]]
-  identifier = 'about'
-  name = 'about'
+  identifier = 'About'
+  name = 'About'
   pre = "<i class='fa fa-heart'></i>"
   url = '/about/'
   weight=1
 [[menu.main]]
-  identifier = 'posts'
-  name = 'posts'
+  identifier = 'Posts'
+  name = 'Posts'
   pre = "<i class='fa fa-heart'></i>"
   url = '/posts/'
   weight=2

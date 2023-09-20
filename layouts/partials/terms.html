@@ -1,7 +1,7 @@
 <section class="container taxonomy">
   <header>
     <h1 class="title">
-      <a class="title-link" href="{{ .Permalink | safeURL }}">
+      <a class="title-link" href="{{ .Permalink | safeURL }}" style="font-size: 18px;">
         {{- if eq .Kind "term" -}}
           {{- i18n .Data.Plural | title -}}
           {{- print ": " -}}
