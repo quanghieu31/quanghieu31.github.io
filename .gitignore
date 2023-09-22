@@ -1,0 +1,5 @@
+# Hugo's generated files,
+# add this to avoid accidentally
+# git add them in the future.
+public/
+resources/
