@@ -4,7 +4,7 @@
   
   <section class="container">
 
-    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="font-size: 18px; margin: 75px">
+    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}" style="font-size: 18px">
       {{ .Site.Title }}
 
     </a>
@@ -14,7 +14,7 @@
       <label class="menu-button float-right" for="menu-toggle" >
         <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
       </label>
-      <ul class="navigation-list" style="font-size: 18px; margin-right: 75px">
+      <ul class="navigation-list" style="font-size: 18px">
         {{ with .Site.Menus.main}}
           {{ range sort . }}
             <li class="navigation-item">
