@@ -6,13 +6,4 @@ body {
 h1, h2, h3 {
     font-family: 'Source Sans 3', sans-serif;
 }
-
-p {
-    font-family: "Merriweather", serif;
-}
-
-code {
-    font-family: "Fira Mono";
-}
-
 /* Add more custom styles as needed */
