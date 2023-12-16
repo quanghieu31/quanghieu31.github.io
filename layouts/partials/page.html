@@ -8,27 +8,22 @@
       </h1>
     </header>
 
-
-
     <style>
-    .box {
-      display: flex;
-      gap: 5px;
-      flex-direction: column;
-      margin-left: 0px;
-    }
-      </style>
+      .box {
+        gap: -50px;
+        flex-direction: column;
+        margin-left: 0px;
+      }
+    </style>
 
-    <div class="box" style="float: inline-start">
+    <div class="box">
       {{ with .Site.Params.avatarabout }}
-      <img src="{{ . | relURL }}" style="position: static; width:200px; z-index:-1"></div>
+        <img src="{{ . | relURL }}" style="position: static; width:200px">
       {{ end }}
+    </div>
 
-    {{ .Content }}
-
-
-    
-
-
+    <div class="box">
+      {{ .Content }}
+    </div>
   </article>
 </section>

@@ -1,5 +1,5 @@
 ---
-title: "Hi! I'm Hieu."
+title: "Hi! I'm Hieu"
 type: "_default"
 ---
 
