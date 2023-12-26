@@ -1,8 +1,7 @@
 {{ partial "head/meta-tags.html" . }}
 
 {{ if .Permalink }}
-<link rel="canonical" href="{{ .Permalink }}">
-
+<link rel="canonical" href="{{ .Permalink }}">  
 {{ end }}
 
 {{ partialCached "head/theme-styles.html" . }}
@@ -19,4 +18,4 @@
 
 {{ partial "head/extensions.html" . }}
 
-
+{{ partial "head/meta-tags.html" . }}
