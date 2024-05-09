@@ -1,5 +1,5 @@
 ---
-title: "Experiment network graph on statistics concepts"
+title: "Network graph on statistics concepts"
 date: 2023-12-24T12:00:00Z
 draft: false
 ---
