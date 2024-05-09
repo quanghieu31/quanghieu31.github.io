@@ -35,6 +35,7 @@
               {{ end }}
               <li class="navigation-item">
                 <a href="{{ .RelPermalink }}">{{ .Language.LanguageName | emojify }}</a>
+                {{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
               </li>
             {{ end }}
           {{ end }}

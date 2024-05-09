@@ -7,7 +7,7 @@
   {{ partial "head.html" . }}
 
   {{ partial "google-fonts" . }}
-  
+  {{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
 </head>
 
 {{ $csClass := "colorscheme-light" }}
