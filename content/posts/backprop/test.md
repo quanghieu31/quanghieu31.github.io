@@ -1,10 +1,13 @@
 ---
-title: "Back propagation"
-date: 2024-05-09T10:00:00+00:00
+title: "rrrr"
+date: 2023-12-24T12:00:00Z
 draft: false
+layout: "single"
 ---
 
-Hello, my name
+Hello, my name 
+
+$$ \partial \ell 1 + 2 = x$$
 
 
 ```python
