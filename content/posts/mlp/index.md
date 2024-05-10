@@ -1,7 +1,7 @@
 ---
 title: "Multilayer perceptron"
 date: 2024-05-09T12:00:00Z
-draft: true
+draft: false
 layout: "single"
 mathjax: true
 ---
