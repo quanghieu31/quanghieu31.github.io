@@ -1,7 +1,7 @@
 ---
 title: "Multilayer perceptron"
 date: 2024-05-09T12:00:00Z
-draft: false
+draft: true
 layout: "single"
 mathjax: true
 ---
@@ -24,7 +24,7 @@ Half of the battle is the configurations and notations:
 
 This is my attempt to draw a neural network for one single training example:
 
-![](/figs/nn.png)
+![](/mlp/nn.png)
 
 # Additional notations
 
