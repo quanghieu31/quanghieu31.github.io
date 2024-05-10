@@ -24,7 +24,7 @@ Half of the battle is the configurations and notations:
 
 This is my attempt to draw a neural network for one single training example:
 
-![a](figs/nn.png)
+![](/figs/nn.png)
 
 # Additional notations
 
