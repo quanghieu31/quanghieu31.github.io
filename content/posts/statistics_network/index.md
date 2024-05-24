@@ -1,7 +1,7 @@
 ---
 title: "Network graph on statistics concepts"
 date: 2023-12-24T12:00:00Z
-draft: false
+draft: true
 ---
 
 I am on a quest of finding the best learning method for me when it comes to understanding and memorizing concepts from statistics and math. I enjoy sitting in lectures and occasionally interacting with the lecturers. But then I recently realized it is not the most proactive and sustainable way to remember or know why/when/how to use concepts learned from stats class when dealing with a real-world problem. The assignments and projects are helpful but I need to feel natural and comfortable explaining and applying the knowledge later. 

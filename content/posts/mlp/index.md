@@ -78,6 +78,7 @@ Hyperparameter: step size (learning rate) $ \eta $
      - For $ l = 1, \ldots, L $ do
        - Set $\mathbf{b}^l = \mathbf{b}^l - \eta (\frac{\partial \mathcal{L}}{\partial \mathbf{b}^l} + \lambda \frac{\partial \mathcal{L}}{\partial \mathbf{b}^l})$
        - Set $ \mathbf{W}^l = \mathbf{W}^l - \eta (\frac{\partial \mathcal{L}}{\partial \mathbf{W}^l} + \lambda \frac{\partial \mathcal{L}}{\partial \mathbf{W}^l})$
+
 Output the parameters (each layer has a matrix of weight params and a vector of bias params).
 
 # Questions (to be answered)
