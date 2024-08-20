@@ -1,6 +1,6 @@
 ---
 title: "Coding it Forward Fellowship 2024"
-date: 2024-08-20
+date: 2024-08-20T12:00:00Z
 draft: true
 layout: "single"
 ---
