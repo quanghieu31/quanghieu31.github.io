@@ -13,3 +13,5 @@ I just finished my fellowship at Coding it Forward. I worked as a data engineer 
 - learn Snowflake, PySpark, teamwork
 - observe: many smart, coding, data people! and data is messy, confidentiality, sensitive, understandable
 - inspire lumbar degenerative, public health surveillance tools
+
+Learn more about my work at this [repo](https://github.com/codingitforward/fellowship2024/blob/main/Hieu_Nguyen_Lidia_Ghebreamlak.pdf).
