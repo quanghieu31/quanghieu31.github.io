@@ -36,13 +36,7 @@ $$</p><p>From the breakdown in part (1), it seems that $\mathbf{Q}$ is actually 
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># impute `Bare_nuclei` variable (missing data) with mean</span>
 </span></span><span style=display:flex><span>X[<span style=color:#e6db74>&#39;Bare_nuclei&#39;</span>] <span style=color:#f92672>=</span> X[<span style=color:#e6db74>&#39;Bare_nuclei&#39;</span>]<span style=color:#f92672>.</span>fillna(X[<span style=color:#e6db74>&#39;Bare_nuclei&#39;</span>]<span style=color:#f92672>.</span>mean())
-</span></span></code></pre></div><pre><code>C:\Users\ASUS\AppData\Local\Temp\ipykernel_42704\2341314036.py:12: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  X['Bare_nuclei'] = X['Bare_nuclei'].fillna(X['Bare_nuclei'].mean())
-</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># count features</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># count features</span>
 </span></span><span style=display:flex><span>len(X<span style=color:#f92672>.</span>columns), X<span style=color:#f92672>.</span>columns
 </span></span></code></pre></div><pre><code>(9,
  Index(['Clump_thickness', 'Uniformity_of_cell_size',
