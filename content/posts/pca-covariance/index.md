@@ -104,14 +104,6 @@ y = breast_cancer_wisconsin_original.data.targets
 X['Bare_nuclei'] = X['Bare_nuclei'].fillna(X['Bare_nuclei'].mean())
 ```
 
-    C:\Users\ASUS\AppData\Local\Temp\ipykernel_42704\2341314036.py:12: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      X['Bare_nuclei'] = X['Bare_nuclei'].fillna(X['Bare_nuclei'].mean())
-    
-
 
 ```python
 # count features
