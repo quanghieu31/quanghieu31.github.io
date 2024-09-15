@@ -5,10 +5,11 @@ draft: false
 layout: "single"
 mathjax: true
 ---
-
-I recently read an interesting explanation for covariance on [StackExchange Cross Validated](https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean). The usage of rectangles and colors are very intuitive to see the directions, means, and strengths given information on covariance and correlation. This got me thinking: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don't I try implementing this by exploring how the covariance matrix plays a role in this popular dimension reduction and variable selection method?
+I recently read an interesting explanation for covariance on [StackExchange Cross Validated](https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean). The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don't I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.
 
 **Note**: If you think I make any mistakes or unclear points, please let me know via email and we can discuss it, I really appreciate your help!
+
+
 
 ### Quick on PCA + SVD
 
@@ -16,13 +17,19 @@ SVD = Singular Value Decomposition
 
 There seems to be many ways to construct PCA, here I am investigating sequentially the use of covariance matrix and then the use of SVD. A member of the basic linear transforms family, PCA+SVD is feature construction with the goal to transform data into a new coordinate system for dimensionality reduction or class separation. Basically, it reduces the number of features by getting linearly uncorrelated variables (or principal components, or eigenvectors) while maintaining variance. These variables belong to the left singular matrix of the SVD matrix while the variances are the middle matrix or diagonal matrix.
 
+Principal components (PCs) are created (newly) from the data. Basically, PCA tries to convert the available into PCs that easier to read, contain useful information like variance and eigenvalues, but hard to be meaningfully interpreted because the measures or units are gone. Utilizing linear transforms, PCA finds weights as eigenvectors that maximizes variance or $||\mathbf{Xw}||^2$ (squared norm or squared length) of the projected data and thus gets these components through eigen-decomposition of the covariance matrix of the data. The resulting eigenvectors or PCs define the directions of maximum variance and eigenvalues quantify the amount of the PC's variance.
+
+Note that these PCs are not features! Each PC is a direction of the data that is orthogonal to each other (no PCs or eigenvectors are overlapping) and represents the highest variance possible. For example, after finding the first PC with maximum variance, it essentially removes this PC from data, and find the next highest-variance PC. So, each PC contains "portions" of all features in original data [example](https://quanghieu31.github.io/posts/pca-covariance/#Bonus-PCA).
+
 There are so many details on this supervised feature selection method (e.g. the relevance of nested subset methods, Gram-Schmidt orthogonalization,...) but I mainly try to see how relevant the covariance matrix is. 
 
-More info on SVD: https://en.wikipedia.org/wiki/Singular_value_decomposition
+Very helpful info on SVD: https://en.wikipedia.org/wiki/Singular_value_decomposition and PCA: https://en.wikipedia.org/wiki/Principal_component_analysis 
+
+
 
 ### 1. Covariance matrix
 
-Suppose we have a data matrix called $\mathbf{X}$ that is standardized and centered to the mean 0 (for each column). $\mathbf{X}$ is $n \times p$ where $n$ is the number of observations and $p$ is the number of features. Now, the covariance matrix is
+Suppose we have a data matrix called $\mathbf{X}$ that is standardized and centered to the mean 0 (for each column). And suppose it only has continous, numerical variables for convenience. $\mathbf{X}$ is $n \times p$ where $n$ is the number of observations and $p$ is the number of features. Now, the covariance matrix is
 
 $$
 \mathbf{C} = \frac{1}{n-1} (\mathbf{X}^T-\bar{\mathbf{X}^T}) (\mathbf{X}-\bar{\mathbf{X}}) =  \frac{1}{n-1} (\mathbf{X}^T) (\mathbf{X}) 
@@ -65,9 +72,9 @@ $$
 
 From the breakdown in part (1), it seems that $\mathbf{Q}$ is actually $\mathbf{V}$! So $V$ contains eigenvectors or principal directions of the covariance matrix $\mathbf{C}$. And $\frac{\mathbf{\Sigma}^2}{n-1}=\mathbf{D}$ represents how strong the variance of the corresponding directions are (the diagonal entries are eigenvalues). And the transformed data is $\mathbf{X}\cdot\mathbf{V} = (n\times p) \cdot (p\times p)$.
 
-The $i$-th column of $XV$: This column represents the values of the $i$-th principal component for each sample. It is the transformed version of the original data in the direction of the $i$-th eigenvector.
+The $i$-th column of $\mathbf{X}\mathbf{V}$: This column represents the values of the $i$-th principal component for each sample. It is the transformed version of the original data in the direction of the $i$-th eigenvector.
 
-Also, notice that $XV=U\Sigma V^T V=U\Sigma$.
+Also, notice that $\mathbf{X}\mathbf{V}=U\Sigma V^T V=U\Sigma$.
 
 ### 5. Reduce dimensionality
 
@@ -84,7 +91,7 @@ Lower rank (to be investigated later):
 - This matrix has lower rank (=$k$). 
 - More on this: https://stats.stackexchange.com/questions/130721/what-norm-of-the-reconstruction-error-is-minimized-by-the-low-rank-approximation.
 
-### Try on a dataset
+### 6. Try on a dataset
 
 W. Wolberg. "Breast Cancer Wisconsin (Original)," UCI Machine Learning Repository, 1990. [Online]. Available: https://doi.org/10.24432/C5HP4Z.
 
@@ -92,83 +99,49 @@ W. Wolberg. "Breast Cancer Wisconsin (Original)," UCI Machine Learning Repositor
 ```python
 from ucimlrepo import fetch_ucirepo 
 import numpy as np
-  
 # fetch dataset 
 breast_cancer_wisconsin_original = fetch_ucirepo(id=15) 
-  
 # data (as pandas dataframes) 
 X = breast_cancer_wisconsin_original.data.features 
 y = breast_cancer_wisconsin_original.data.targets 
-
 # impute `Bare_nuclei` variable (missing data) with mean
 X['Bare_nuclei'] = X['Bare_nuclei'].fillna(X['Bare_nuclei'].mean())
 ```
 
 
 ```python
-# count features
-len(X.columns), X.columns
-```
-
-
-
-
-    (9,
-     Index(['Clump_thickness', 'Uniformity_of_cell_size',
-            'Uniformity_of_cell_shape', 'Marginal_adhesion',
-            'Single_epithelial_cell_size', 'Bare_nuclei', 'Bland_chromatin',
-            'Normal_nucleoli', 'Mitoses'],
-           dtype='object'))
-
-
-
-
-```python
 # standardize and center data
 X = X - X.mean()
 X = (X-X.mean())/X.std()
-```
-
-
-```python
-# Covariance matrix
+# covariance matrix
 C = (1/X.shape[0]) * X.T @ X
 eigenvalues, eigenvectors = np.linalg.eigh(C)
-```
 
-
-```python
 print(eigenvalues)
-eigenvectors
+print(eigenvectors)
 ```
 
     [0.08852979 0.26196357 0.29494031 0.30549327 0.37923046 0.46220462
      0.53807087 0.77554845 5.88114313]
+    [[-0.00134     0.23175563 -0.01404671  0.27417447  0.06338653  0.10236355
+       0.86285736  0.14244407  0.30267028]
+     [-0.73455884 -0.45060332  0.19953745  0.09733398 -0.13692903 -0.20358348
+      -0.01526165  0.04815858  0.38123865]
+     [ 0.66617322 -0.59057132  0.12417806  0.01706757 -0.104332   -0.1718784
+       0.03781563  0.08476065  0.37773738]
+     [ 0.04718217  0.10055229 -0.12563921  0.67971233  0.01382596  0.46509141
+      -0.4251162   0.04390685  0.3327405 ]
+     [ 0.0672024   0.4547088  -0.17628399 -0.04258278 -0.67076873 -0.39246704
+      -0.10609514 -0.16593569  0.33627742]
+     [-0.07693108 -0.06962543 -0.38373562 -0.6040294  -0.12299572  0.53473612
+      -0.00911322  0.25461852  0.33338425]
+     [ 0.05987162  0.40268926  0.70482078 -0.25250951  0.251001    0.01098134
+      -0.1953785   0.22944693  0.34609625]
+     [-0.01841871  0.09428063 -0.48658454 -0.05095997  0.649491   -0.44754239
+      -0.12547163 -0.02483507  0.33603247]
+     [ 0.00708505 -0.04129706  0.13006219 -0.14153277  0.12750515  0.24866722
+       0.08851743 -0.90700074  0.22960408]]
     
-
-
-
-
-    array([[-0.00134   ,  0.23175563, -0.01404671,  0.27417447,  0.06338653,
-             0.10236355,  0.86285736,  0.14244407,  0.30267028],
-           [-0.73455884, -0.45060332,  0.19953745,  0.09733398, -0.13692903,
-            -0.20358348, -0.01526165,  0.04815858,  0.38123865],
-           [ 0.66617322, -0.59057132,  0.12417806,  0.01706757, -0.104332  ,
-            -0.1718784 ,  0.03781563,  0.08476065,  0.37773738],
-           [ 0.04718217,  0.10055229, -0.12563921,  0.67971233,  0.01382596,
-             0.46509141, -0.4251162 ,  0.04390685,  0.3327405 ],
-           [ 0.0672024 ,  0.4547088 , -0.17628399, -0.04258278, -0.67076873,
-            -0.39246704, -0.10609514, -0.16593569,  0.33627742],
-           [-0.07693108, -0.06962543, -0.38373562, -0.6040294 , -0.12299572,
-             0.53473612, -0.00911322,  0.25461852,  0.33338425],
-           [ 0.05987162,  0.40268926,  0.70482078, -0.25250951,  0.251001  ,
-             0.01098134, -0.1953785 ,  0.22944693,  0.34609625],
-           [-0.01841871,  0.09428063, -0.48658454, -0.05095997,  0.649491  ,
-            -0.44754239, -0.12547163, -0.02483507,  0.33603247],
-           [ 0.00708505, -0.04129706,  0.13006219, -0.14153277,  0.12750515,
-             0.24866722,  0.08851743, -0.90700074,  0.22960408]])
-
-
 
 
 ```python
@@ -199,7 +172,6 @@ np.round(C.to_numpy(), 3) == np.round(diagonalization, 3) # 3 decimal points
 
 ```python
 # principal components
-
 # sort X based on eigenvalues
 sorted_indices = np.argsort(eigenvalues)[::-1] # need to manually sort
 eigenvalues_sorted = eigenvalues[sorted_indices]
@@ -226,10 +198,8 @@ print(pc_covariance)
 # now, let's if we used the SVD method to get the same principal components or not
 U, Sigma, Vt = np.linalg.svd(X)
 # note that Sigma is already sorted descendingly
-
 Sigma_matrix= np.zeros((X.shape[0], X.shape[1]))
 np.fill_diagonal(Sigma_matrix, Sigma)
-
 pc_svd = U @ Sigma_matrix
 pc_svd = np.round(pc_svd, 3)
 pc_svd
@@ -277,8 +247,6 @@ pc_svd == pc_covariance
 ```python
 # use the pc_svd to get fewer features
 # original: 9 features, now: suppose we want 4 features
-# k = 4
-
 k = 4 
 reconstructed_X = pc_svd[:, :k] 
 reconstructed_X.shape
@@ -303,3 +271,89 @@ column_names_sorted_by_eigenvalues[:k]
     ['Mitoses', 'Normal_nucleoli', 'Bland_chromatin', 'Bare_nuclei']
 
 
+
+### Bonus-PCA
+
+
+```python
+import numpy as np
+import pandas as pd
+np.random.seed(123)
+random_matrix = np.random.randn(8, 3)
+df = pd.DataFrame(random_matrix, columns=["feature1", "feature2", "feature3"])
+print(df)
+```
+
+       feature1  feature2  feature3
+    0 -1.085631  0.997345  0.282978
+    1 -1.506295 -0.578600  1.651437
+    2 -2.426679 -0.428913  1.265936
+    3 -0.866740 -0.678886 -0.094709
+    4  1.491390 -0.638902 -0.443982
+    5 -0.434351  2.205930  2.186786
+    6  1.004054  0.386186  0.737369
+    7  1.490732 -0.935834  1.175829
+    
+
+
+```python
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2)  # suppose we want only 2 PCs
+pca.fit(df)
+eigenvectors = pca.components_
+print("PCs:\n", eigenvectors) # each PC is a row!
+print() 
+eigenvalues = pca.explained_variance_
+print("Eigenvalues:\n", eigenvalues)
+```
+
+    PCs:
+     [[ 0.91089251 -0.26571718 -0.31570433]
+     [ 0.37939115  0.84018627  0.38749115]]
+    
+    Eigenvalues:
+     [2.35368466 1.27800638]
+    
+
+
+```python
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+transformed_data = pca.transform(df)
+fig = plt.figure(figsize=(10, 6))
+ax = fig.add_subplot(111)
+ax.scatter(transformed_data[:, 0], transformed_data[:, 1], s=50)
+ax.set_xlabel("PC1")
+ax.set_ylabel("PC2")
+plt.show()
+```
+
+
+    
+![png](2-pca-covariance-svd_files/2-pca-covariance-svd_16_0.png)
+    
+
+
+
+```python
+transformed_data
+```
+
+
+
+
+    array([[-0.79980352,  0.28440197],
+           [-1.19625559, -0.66901683],
+           [-1.95269743, -1.04181503],
+           [-0.03577698, -1.18725035],
+           [ 2.21186851, -0.39434274],
+           [-1.12874005,  2.28463639],
+           [ 1.12261698,  0.73979447],
+           [ 1.77878806, -0.01640788]])
+
+
+
+This transformed data represents eight observations projected onto two PCs. Each row corresponds to an observation, and each column corresponds to a PC.
+
+PC1 (more spread out given the center at 0) seems to capture the largest variance, as most of the observations have strong positive or negative values along this component.
