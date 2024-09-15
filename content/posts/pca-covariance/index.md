@@ -331,7 +331,7 @@ plt.show()
 
 
     
-![png](2-pca-covariance-svd_files/2-pca-covariance-svd_16_0.png)
+![](/pca-covariance/fig-pca.png)
     
 
 
