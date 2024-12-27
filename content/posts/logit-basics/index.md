@@ -9,7 +9,7 @@ mathjax: true
 
 - Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$
 
-For an example $i$, we have feature vector $\vec{x}_i = [x_{i1}, x_{i2}, \cdots, x_{ip}]^T$:
+For an example $i$, we have feature vector $\vec{x}_{i} = [x_{i1} , x_{i2} , \dots , x_{ip} ]^{T}$:
 
 $$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$
 
@@ -44,11 +44,11 @@ For $\vec{x}_i$ in $X$ ($N$ samples), and then for $\vec{w}_j$ in $W$ ($p$ featu
 1. Calculate $\hat{y}_i$
 2. Gradient for each $w_j$
 
- $$\frac{\partial Loss(\vec{w})}{\partial w_j} = \frac{\partial Loss}{\partial \hat{y_i}} \frac{\partial \hat{y_i}}{\partial z_i} \frac{\partial z_i}{\partial w_j} = - \sum_{i=1}^N [\frac{y_i}{\hat{y}_i} - \frac{1-y_i}{1-\hat{y}_i}] \cdot \hat{y}_i(1-\hat{y}_i) \cdot x_{i,j} = - \sum_{i=1}^N (y_i - \hat{y}_i)x_{i, j} $$
+$$ \frac{\partial Loss(\vec{w})}{\partial w_j} = \frac{\partial Loss}{\partial \hat{y_i}} \frac{\partial \hat{y_i}}{\partial z_i} \frac{\partial z_i}{\partial w_j} = - \sum_{i=1}^{N} [\frac{y_i}{\hat{y}_i} - \frac{1-y_i}{1-\hat{y}_i}] \cdot \hat{y}_{i} (1-\hat{y}_{i} ) \cdot x_{i,j} = - \sum_{i=1}^{N} (y_{i} - \hat{y}_{i} ) x_{i, j} $$
 
 3. Update
 
-$$ w_j = w_j - \eta \frac{\partial Loss(\vec{w})}{\partial w_j}  = w_j - \eta \sum_{i=1}^N (y_i - \hat{y}_i)x_{i, j}$$
+$$ w_{j} = w_{j} - \eta \frac{\partial Loss(\vec{w})}{\partial w_{j}}  = w_{j} - \eta \sum_{i=1}^{N} (y_{i} - \hat{y}_{i} ) x_{i, j} $$
 
 ## Binary-class with gradient descent on log loss
 
