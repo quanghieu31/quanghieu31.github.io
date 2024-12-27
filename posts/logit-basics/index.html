@@ -1,0 +1,276 @@
+<!doctype html><html lang=en><head><title>Logistic regression basics · Home
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Hieu Nguyen"><meta name=description content="
+  Gradient updates in logistic regression for binary classification
+  
+    
+    Link to heading
+  
+
+
+Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$
+
+For an example $i$, we have feature vector $\vec{x}i = [x{i1}, x_{i2}, \cdots, x_{ip}]^T$
+$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$
+$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
+General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:"><meta name=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Logistic regression basics"><meta name=twitter:description content="Gradient updates in logistic regression for binary classification Link to heading Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$ For an example $i$, we have feature vector $\vec{x}i = [x{i1}, x_{i2}, \cdots, x_{ip}]^T$ $$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$ $$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
+General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:"><meta property="og:url" content="https://quanghieu31.github.io/posts/logit-basics/"><meta property="og:site_name" content="Home"><meta property="og:title" content="Logistic regression basics"><meta property="og:description" content="Gradient updates in logistic regression for binary classification Link to heading Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$ For an example $i$, we have feature vector $\vec{x}i = [x{i1}, x_{i2}, \cdots, x_{ip}]^T$ $$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$ $$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
+General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-12-26T12:00:00+00:00"><meta property="article:modified_time" content="2024-12-26T12:00:00+00:00"><link rel=canonical href=https://quanghieu31.github.io/posts/logit-basics/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.82caf190d01cd5b664127e60afa93081244659afd1e288eda818c81fb0e63981.css integrity="sha256-gsrxkNAc1bZkEn5gr6kwgSRGWa/R4ojtqBjIH7DmOYE=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon.ico sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Hieu Nguyen"><meta name=description content="
+  Gradient updates in logistic regression for binary classification
+  
+    
+    Link to heading
+  
+
+
+Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$
+
+For an example $i$, we have feature vector $\vec{x}i = [x{i1}, x_{i2}, \cdots, x_{ip}]^T$
+$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$
+$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
+General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:"><meta name=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Logistic regression basics"><meta name=twitter:description content="Gradient updates in logistic regression for binary classification Link to heading Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$ For an example $i$, we have feature vector $\vec{x}i = [x{i1}, x_{i2}, \cdots, x_{ip}]^T$ $$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$ $$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
+General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:"><meta property="og:url" content="https://quanghieu31.github.io/posts/logit-basics/"><meta property="og:site_name" content="Home"><meta property="og:title" content="Logistic regression basics"><meta property="og:description" content="Gradient updates in logistic regression for binary classification Link to heading Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$ For an example $i$, we have feature vector $\vec{x}i = [x{i1}, x_{i2}, \cdots, x_{ip}]^T$ $$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$ $$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
+General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-12-26T12:00:00+00:00"><meta property="article:modified_time" content="2024-12-26T12:00:00+00:00"><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel=stylesheet><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"]}},window.addEventListener("load",e=>{document.querySelectorAll("mjx-container").forEach(function(e){e.parentElement.classList+="has-jax"})})</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/ style=font-size:18px>Home
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list style=font-size:18px><li class=navigation-item><a class=navigation-link href=/about/ style=font-size:18px>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/ style=font-size:18px>Posts</a></li></ul></section></nav><div class=content><section class="container post"><article><style>.content{max-width:1000px;margin:40px auto 10px;padding:0 15px;font-size:16px;line-height:1.8}</style><header><div class=post-title><h1 class=title><a class=title-link href=https://quanghieu31.github.io/posts/logit-basics/ style=font-size:22px>Logistic regression basics</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2024-12-26T12:00:00Z>December 26, 2024
+</time></span><span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+6-minute read</span></div></div></header><div class=post-content><h2 id=gradient-updates-in-logistic-regression-for-binary-classification>Gradient updates in logistic regression for binary classification
+<a class=heading-link href=#gradient-updates-in-logistic-regression-for-binary-classification><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><ul><li>Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$</li></ul><p>For an example $i$, we have feature vector $\vec{x}<em>i = [x</em>{i1}, x_{i2}, \cdots, x_{ip}]^T$
+$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$
+$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$</p><p>General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:</p><p>$$ \Pr(y_i | \vec{x}_i) = \hat{y_i}^{y_i} \cdot (1-\hat{y}_i)^{1-y_i} $$</p><p>$$ \Pr(y_i | \vec{w}, \vec{x}_i) = (\frac{1}{1+e^{-\vec{w}^T\vec{x}_i - b}})^{y_i} \cdot (\frac{e^{-\vec{w}^T\vec{x}_i-b}}{1 + e^{\vec{w}^T \vec{x} - b }})^{1-y_i} $$</p><ul><li>Entire dataset with $N$ samples, that likelihood (MLE) and its log likelihood (for convience):
+$$ L = \prod_{i=1}^N \Pr(y_i | x_i) = \prod_{i=1}^N (\frac{1}{1+e^{-\vec{w}^T\vec{x}_i - b}})^{y_i} (\frac{e^{-\vec{w}^T\vec{x}_i+b}}{1 + e^{-\vec{w}^T \vec{x} -b }})^{1-y_i} $$</li></ul><p>$$ \log L = \sum_{i=1}^N [ y_i \log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i) ] $$</p><ul><li>Max log-likelihood = Min negative log-likelihood</li></ul><p>$$ Loss(y, \hat{y}) = - \log L = - \sum_{i=1}^N [ y_i \log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i) ] $$</p><p>Why? MLE aims to maximize $L$ by finding the $W$ and $b$ params that make the $\Pr(y|x)$ most likely. But gradient descent is for minimization problem for loss function, so we want a negative log likelihood.</p><ul><li>Training loss for an example and gradients</li></ul><p>$$ \vec{w}^{*} = \arg\min_{\vec{w}} Loss(\vec{w}) $$</p><p>If we have $p$ features, we have $p$ parameters for the $\vec{w}$ which is $[w_1, w_2, \cdots, w_p]$. To minimize our cost function, we need to run the gradient descent on each parameter. We need to update each parameter simultaneously for each training sample $(O(N \times p)$) if brute force.</p><p>For $\vec{x}_i$ in $X$ ($N$ samples), and then for $\vec{w}_j$ in $W$ ($p$ features) with the first set of parameters initialized.</p><ol><li>Calculate $\hat{y}_i$</li><li>Gradient for each $w_j$
+$$\frac{\partial Loss(\vec{w})}{\partial w_j} = \frac{\partial Loss}{\partial \hat{y_i}} \frac{\partial \hat{y_i}}{\partial z_i} \frac{\partial z_i}{\partial w_j} = - \sum_{i=1}^N [\frac{y_i}{\hat{y}_i} - \frac{1-y_i}{1-\hat{y}_i}] \cdot \hat{y}<em>i(1-\hat{y}<em>i) \cdot x</em>{i,j} = - \sum</em>{i=1}^N (y_i - \hat{y}<em>i)x</em>{i, j} $$</li><li>Update
+$$ w_j = w_j - \eta \frac{\partial Loss(\vec{w})}{\partial w_j} = w_j - \eta \sum_{i=1}^N (y_i - \hat{y}<em>i)x</em>{i, j}$$</li></ol><h2 id=binary-class-with-gradient-descent-on-log-loss>Binary-class with gradient descent on log loss
+<a class=heading-link href=#binary-class-with-gradient-descent-on-log-loss><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.preprocessing <span style=color:#f92672>import</span> StandardScaler
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.model_selection <span style=color:#f92672>import</span> train_test_split
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.metrics <span style=color:#f92672>import</span> accuracy_score, precision_score, recall_score, f1_score, roc_curve, roc_auc_score, log_loss, confusion_matrix
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> matplotlib.pyplot <span style=color:#66d9ef>as</span> plt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> ucimlrepo <span style=color:#f92672>import</span> fetch_ucirepo, list_available_datasets
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+</span></span><span style=display:flex><span>np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>seed(<span style=color:#ae81ff>123</span>)
+</span></span><span style=display:flex><span>data <span style=color:#f92672>=</span> fetch_ucirepo(id<span style=color:#f92672>=</span><span style=color:#ae81ff>17</span>)[<span style=color:#e6db74>&#34;data&#34;</span>]
+</span></span><span style=display:flex><span>X <span style=color:#f92672>=</span> data<span style=color:#f92672>.</span>features
+</span></span><span style=display:flex><span>y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(data<span style=color:#f92672>.</span>targets[<span style=color:#e6db74>&#34;Diagnosis&#34;</span>]<span style=color:#f92672>.</span>apply(<span style=color:#66d9ef>lambda</span> x: <span style=color:#ae81ff>1.0</span> <span style=color:#66d9ef>if</span> x<span style=color:#f92672>==</span><span style=color:#e6db74>&#34;M&#34;</span> <span style=color:#66d9ef>else</span> <span style=color:#ae81ff>0.0</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>X_train, X_valid, y_train, y_valid <span style=color:#f92672>=</span> train_test_split(X, y, test_size<span style=color:#f92672>=</span><span style=color:#ae81ff>0.25</span>, stratify<span style=color:#f92672>=</span>y)
+</span></span><span style=display:flex><span>scaler <span style=color:#f92672>=</span> StandardScaler()
+</span></span><span style=display:flex><span>X_train <span style=color:#f92672>=</span> scaler<span style=color:#f92672>.</span>fit_transform(X_train)
+</span></span><span style=display:flex><span>X_valid <span style=color:#f92672>=</span> scaler<span style=color:#f92672>.</span>transform(X_valid)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>cross_binary_log_loss</span>(y_real, y_pred):
+</span></span><span style=display:flex><span>    epsilon <span style=color:#f92672>=</span> <span style=color:#ae81ff>1e-15</span>
+</span></span><span style=display:flex><span>    y_pred <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>clip(y_pred, epsilon, <span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> epsilon) <span style=color:#75715e># to avoid log(0)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span> (y_real <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>log(y_pred) <span style=color:#f92672>+</span> (<span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> y_real) <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>log(<span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> y_pred))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>gradient_loss_wrt_wj_bj</span>(y_real, y_pred, x_ij):
+</span></span><span style=display:flex><span>    grad_wj <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sum((y_pred <span style=color:#f92672>-</span> y_real) <span style=color:#f92672>@</span> x_ij)
+</span></span><span style=display:flex><span>    grad_bj <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sum((y_pred <span style=color:#f92672>-</span> y_real))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> grad_wj, grad_bj
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sigmoid</span>(z):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> z <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>10</span>:
+</span></span><span style=display:flex><span>        z <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>elif</span> z <span style=color:#f92672>&lt;=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>10</span>:
+</span></span><span style=display:flex><span>        z <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span>z))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># for plotting:</span>
+</span></span><span style=display:flex><span>list_total_logloss <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># initialize weight params</span>
+</span></span><span style=display:flex><span>weight_vector <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>random(X_train<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>bias_scalar <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>random(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>lr <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.001</span>
+</span></span><span style=display:flex><span>epochs <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># multiple iterations/epochs</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> epoch <span style=color:#f92672>in</span> range(epochs):
+</span></span><span style=display:flex><span>    print()
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;epoch&#34;</span>, epoch)
+</span></span><span style=display:flex><span>    avg_logloss_epoch <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># one iteration:</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> j, w <span style=color:#f92672>in</span> enumerate(weight_vector):
+</span></span><span style=display:flex><span>        total_logloss <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        y_pred <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>        x_ij_vector <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i, x_i <span style=color:#f92672>in</span> enumerate(X_train):
+</span></span><span style=display:flex><span>            z_i <span style=color:#f92672>=</span> weight_vector <span style=color:#f92672>@</span> x_i <span style=color:#f92672>+</span> bias_scalar
+</span></span><span style=display:flex><span>            y_pred_i <span style=color:#f92672>=</span> sigmoid(z_i)
+</span></span><span style=display:flex><span>            <span style=color:#75715e># y_pred_i = 1.0 if y_pred_i_proba &gt;= 0.5 else 0.0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># for each sample: </span>
+</span></span><span style=display:flex><span>            logloss <span style=color:#f92672>=</span> cross_binary_log_loss(y_train[i], y_pred_i) 
+</span></span><span style=display:flex><span>            total_logloss <span style=color:#f92672>+=</span> logloss
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># for gradient update later</span>
+</span></span><span style=display:flex><span>            y_pred <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>append(y_pred, y_pred_i)
+</span></span><span style=display:flex><span>            x_ij_vector <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>append(x_ij_vector, x_i[j])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># update</span>
+</span></span><span style=display:flex><span>        grad_wj, grad_bj <span style=color:#f92672>=</span> gradient_loss_wrt_wj_bj(y_train, y_pred, x_ij_vector)
+</span></span><span style=display:flex><span>        weight_vector[j] <span style=color:#f92672>=</span> w <span style=color:#f92672>-</span> lr<span style=color:#f92672>*</span>grad_wj
+</span></span><span style=display:flex><span>        bias_scalar <span style=color:#f92672>=</span> bias_scalar <span style=color:#f92672>-</span> lr<span style=color:#f92672>*</span>grad_bj
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;feature </span><span style=color:#e6db74>{</span>j<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>, total_logloss)
+</span></span><span style=display:flex><span>        avg_logloss_epoch <span style=color:#f92672>+=</span> total_logloss <span style=color:#f92672>/</span> len(weight_vector)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    list_total_logloss<span style=color:#f92672>.</span>append(avg_logloss_epoch)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>plot(range(epochs), list_total_logloss)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>xlabel(<span style=color:#e6db74>&#34;epochs&#34;</span>)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>ylabel(<span style=color:#e6db74>&#34;log loss&#34;</span>)
+</span></span></code></pre></div><pre><code>epoch 0
+feature 0 [253.85308605]
+feature 1 [252.69318705]
+feature 2 [252.03818375]
+feature 3 [251.07456108]
+feature 4 [250.15459244]
+feature 5 [248.98802294]
+feature 6 [248.14251822]
+feature 7 [247.92729866]
+feature 8 [247.73413734]
+feature 9 [246.93601619]
+feature 10 [243.60945911]
+feature 11 [243.42557551]
+feature 12 [242.90870849]
+.
+.
+.
+feature 13 [22.80782659]
+feature 14 [22.80639194]
+feature 15 [22.80471531]
+feature 16 [22.80238045]
+feature 17 [22.80106792]
+feature 18 [22.80102124]
+feature 19 [22.79703826]
+feature 20 [22.7935156]
+feature 21 [22.7926811]
+feature 22 [22.78887515]
+feature 23 [22.78829565]
+feature 24 [22.78740452]
+feature 25 [22.7794603]
+feature 26 [22.77945808]
+feature 27 [22.77101519]
+feature 28 [22.76919309]
+feature 29 [22.76589384]
+
+Text(0, 0.5, 'log loss')
+</code></pre><p><img src=/logit/loss.png alt></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># validation</span>
+</span></span><span style=display:flex><span>pred_total_logloss <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>y_pred <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>z_pred <span style=color:#f92672>=</span> X_valid <span style=color:#f92672>@</span> weight_vector <span style=color:#f92672>+</span> bias_scalar
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> idx, z_i <span style=color:#f92672>in</span> enumerate(z_pred):
+</span></span><span style=display:flex><span>    y_pred_i_proba <span style=color:#f92672>=</span> sigmoid(z_i)
+</span></span><span style=display:flex><span>    y_pred_i <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.0</span> <span style=color:#66d9ef>if</span> y_pred_i_proba <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0.5</span> <span style=color:#66d9ef>else</span> <span style=color:#ae81ff>0.0</span>
+</span></span><span style=display:flex><span>    y_pred <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>append(y_pred, y_pred_i)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    logloss <span style=color:#f92672>=</span> cross_binary_log_loss(y_valid[idx], y_pred_i)
+</span></span><span style=display:flex><span>    pred_total_logloss <span style=color:#f92672>+=</span> logloss
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(pred_total_logloss)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;portion of incorrect classification:&#34;</span>, np<span style=color:#f92672>.</span>sum(y_pred <span style=color:#f92672>!=</span> y_valid) <span style=color:#f92672>/</span> y_valid<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>0</span>])
+</span></span><span style=display:flex><span>    
+</span></span></code></pre></div><pre><code>207.23585675918488
+portion of incorrect classification: 0.04195804195804196
+</code></pre><h2 id=multi-class>Multi-class
+<a class=heading-link href=#multi-class><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>For multi-classification, logistic regression would use softmax function to convert the raw values into probabilities.</p><ul><li><p>Forward pass and softmax ($C$ is the number of classes, and $z_c$ is the logit for class $c$): compute the logits ($z$) from the input features
+$$\Pr(y_i = c \mid x) = \frac{e^{z_c}}{\sum_{j=1}^C e^{z_j}}$$</p></li><li><p>Prediction: for a given example, choose the class with the highest probability: $$\hat{y} = \arg\max(\Pr)$$</p></li><li><p>Loss &ndash; categorical cross-entropy log loss for training ($y_c$ is the one-hot encoded label (1 if the sample belongs to class $c$, else 0):
+$$Loss = - \sum_{c=1}^C y_c \log(\hat{y}_c)$$</p></li><li><p>Gradient update:
+$$\frac{\partial Loss}{\partial w_j} = \frac{\partial \text{Loss}}{\partial z_c} \frac{\partial z_c}{\partial w_j} = \sum_{c=1}^C \sum_{i=1}^N (\hat{y}<em>{c, i} - y</em>{c, i})\cdot x_{i, j} $$
+$$w_j = w_j - \eta \cdot \frac{\partial Loss}{\partial w_j}$$</p></li></ul><p>Since it would take quite some time to implement these from scratch, I followed the sklearn code.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.linear_model <span style=color:#f92672>import</span> LogisticRegression, LogisticRegressionCV
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.model_selection <span style=color:#f92672>import</span> train_test_split
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.preprocessing <span style=color:#f92672>import</span> StandardScaler
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.experimental <span style=color:#f92672>import</span> enable_iterative_imputer
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.impute <span style=color:#f92672>import</span> IterativeImputer
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> sklearn.metrics <span style=color:#f92672>import</span> accuracy_score, precision_score, recall_score, f1_score, roc_curve, roc_auc_score, log_loss, confusion_matrix
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> ucimlrepo <span style=color:#f92672>import</span> fetch_ucirepo, list_available_datasets
+</span></span><span style=display:flex><span>heart_disease <span style=color:#f92672>=</span> fetch_ucirepo(id<span style=color:#f92672>=</span><span style=color:#ae81ff>45</span>) 
+</span></span><span style=display:flex><span>X <span style=color:#f92672>=</span> heart_disease<span style=color:#f92672>.</span>data<span style=color:#f92672>.</span>features 
+</span></span><span style=display:flex><span>y <span style=color:#f92672>=</span> heart_disease<span style=color:#f92672>.</span>data<span style=color:#f92672>.</span>targets 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mice_imputer <span style=color:#f92672>=</span> IterativeImputer(random_state<span style=color:#f92672>=</span><span style=color:#ae81ff>123</span>) <span style=color:#75715e># must have no NaNs</span>
+</span></span><span style=display:flex><span>X <span style=color:#f92672>=</span> mice_imputer<span style=color:#f92672>.</span>fit_transform(X)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>X_train, X_valid, y_train, y_valid <span style=color:#f92672>=</span> train_test_split(
+</span></span><span style=display:flex><span>    X, y, stratify<span style=color:#f92672>=</span>y,
+</span></span><span style=display:flex><span>    test_size<span style=color:#f92672>=</span><span style=color:#ae81ff>0.25</span>, random_state<span style=color:#f92672>=</span><span style=color:#ae81ff>123</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>scaler <span style=color:#f92672>=</span> StandardScaler()
+</span></span><span style=display:flex><span>X_train <span style=color:#f92672>=</span> scaler<span style=color:#f92672>.</span>fit_transform(X_train)
+</span></span><span style=display:flex><span>X_valid <span style=color:#f92672>=</span> scaler<span style=color:#f92672>.</span>transform(X_valid)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>multi_class_model <span style=color:#f92672>=</span> LogisticRegression(
+</span></span><span style=display:flex><span>    penalty <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;l2&#34;</span>, <span style=color:#75715e># l2 supports multinominal</span>
+</span></span><span style=display:flex><span>    tol <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.0001</span>,
+</span></span><span style=display:flex><span>    C <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.01</span>, <span style=color:#75715e># smaller values imply stronger regularization, reduce overfitting</span>
+</span></span><span style=display:flex><span>    class_weight <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;balanced&#34;</span>,
+</span></span><span style=display:flex><span>    random_state <span style=color:#f92672>=</span> <span style=color:#ae81ff>123</span>,
+</span></span><span style=display:flex><span>    solver <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;lbfgs&#34;</span>,
+</span></span><span style=display:flex><span>    max_iter <span style=color:#f92672>=</span> <span style=color:#ae81ff>200</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e># multi_class = &#34;multinomial&#34;, # API changed</span>
+</span></span><span style=display:flex><span>    verbose <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># multi_class_model = LogisticRegressionCV(</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     cv=5,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     penalty = &#34;l2&#34;,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     tol = 1e-4,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     # C = 1.0,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     class_weight = None,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     random_state = 123,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     solver = &#34;lbfgs&#34;,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     max_iter = 200,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     # multi_class = &#34;multinomial&#34;, # API changed</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     verbose = 0</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># )</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>multi_class_model<span style=color:#f92672>.</span>fit(X_train, y_train)
+</span></span><span style=display:flex><span>y_preds <span style=color:#f92672>=</span> multi_class_model<span style=color:#f92672>.</span>predict(X_valid)
+</span></span><span style=display:flex><span>y_preds_probs <span style=color:#f92672>=</span> multi_class_model<span style=color:#f92672>.</span>predict_proba(X_valid)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>accuracy <span style=color:#f92672>=</span> accuracy_score(y_valid, y_preds)
+</span></span><span style=display:flex><span>precision <span style=color:#f92672>=</span> precision_score(y_valid, y_preds, average<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;weighted&#39;</span>)
+</span></span><span style=display:flex><span>recall <span style=color:#f92672>=</span> recall_score(y_valid, y_preds, average<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;weighted&#39;</span>)
+</span></span><span style=display:flex><span>f1 <span style=color:#f92672>=</span> f1_score(y_valid, y_preds, average<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;weighted&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>roc_auc <span style=color:#f92672>=</span> roc_auc_score(y_valid, y_preds_probs, multi_class<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;ovr&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(accuracy, precision, recall, f1, roc_auc)
+</span></span><span style=display:flex><span>multi_class_model<span style=color:#f92672>.</span>coef_ <span style=color:#75715e># (n_classes, n_features)</span>
+</span></span></code></pre></div><pre><code>0.5921052631578947 0.561654135338346 0.5921052631578947 0.5594253219080089 0.7682059222370341
+
+
+
+
+
+array([[-0.08843996, -0.10681667, -0.21039802, -0.02031334, -0.0129146 ,
+        -0.01217517, -0.07925308,  0.13936476, -0.13266781, -0.14694061,
+        -0.08734563, -0.21866621, -0.18266378],
+       [-0.00627953,  0.03609585, -0.0142747 ,  0.00220479,  0.00758366,
+        -0.04470998, -0.01094598,  0.01914847,  0.00836041, -0.10161291,
+        -0.08410252, -0.0787852 , -0.03746149],
+       [ 0.02179476,  0.03913942,  0.09711474, -0.04146647,  0.06054844,
+         0.12798226, -0.05106097, -0.06621271,  0.05177281,  0.06740908,
+         0.00811835,  0.04009986,  0.0677462 ],
+       [-0.09880347, -0.0062584 ,  0.05792577,  0.00400038, -0.05066756,
+         0.06595486,  0.00230296, -0.09269345,  0.06455014,  0.03969532,
+         0.0484704 ,  0.06538833,  0.10801748],
+       [ 0.17172819,  0.0378398 ,  0.06963221,  0.05557464, -0.00454994,
+        -0.13705198,  0.13895706,  0.00039293,  0.00798446,  0.14144912,
+         0.1148594 ,  0.19196322,  0.04436159]])
+</code></pre><p>Given a new instance with a feature vector:</p><ul><li>Repeat the same dot product for all classes to get logits for each class (coef_i @ feature_vector for each logit $i$)</li><li>the softmax function gives the probabilities for each class, and the model selects the class with the highest probability as the prediction.</li></ul></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2024
+Hieu Nguyen
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
