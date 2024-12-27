@@ -9,8 +9,10 @@ mathjax: true
 
 - Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$
 
-For an example $i$, we have feature vector $\vec{x}_i = [x_{i1}, x_{i2}, \cdots, x_{ip}]^T$
+For an example $i$, we have feature vector $\vec{x}_i = [x_{i1}, x_{i2}, \cdots, x_{ip}]^T$:
+
 $$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$
+
 $$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$
 
 General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:
@@ -20,6 +22,7 @@ $$ \Pr(y_i | \vec{x}_i) = \hat{y_i}^{y_i} \cdot (1-\hat{y}_i)^{1-y_i} $$
 $$ \Pr(y_i | \vec{w}, \vec{x}_i) = (\frac{1}{1+e^{-\vec{w}^T\vec{x}_i - b}})^{y_i} \cdot (\frac{e^{-\vec{w}^T\vec{x}_i-b}}{1 + e^{\vec{w}^T \vec{x} - b }})^{1-y_i} $$
 
 - Entire dataset with $N$ samples, that likelihood (MLE) and its log likelihood (for convience):
+
 $$ L = \prod_{i=1}^N \Pr(y_i | x_i) = \prod_{i=1}^N (\frac{1}{1+e^{-\vec{w}^T\vec{x}_i - b}})^{y_i} (\frac{e^{-\vec{w}^T\vec{x}_i+b}}{1 + e^{-\vec{w}^T \vec{x} -b }})^{1-y_i} $$
 
 $$ \log L = \sum_{i=1}^N [ y_i \log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i) ] $$
@@ -40,8 +43,11 @@ For $\vec{x}_i$ in $X$ ($N$ samples), and then for $\vec{w}_j$ in $W$ ($p$ featu
 
 1. Calculate $\hat{y}_i$
 2. Gradient for each $w_j$
+
  $$\frac{\partial Loss(\vec{w})}{\partial w_j} = \frac{\partial Loss}{\partial \hat{y_i}} \frac{\partial \hat{y_i}}{\partial z_i} \frac{\partial z_i}{\partial w_j} = - \sum_{i=1}^N [\frac{y_i}{\hat{y}_i} - \frac{1-y_i}{1-\hat{y}_i}] \cdot \hat{y}_i(1-\hat{y}_i) \cdot x_{i,j} = - \sum_{i=1}^N (y_i - \hat{y}_i)x_{i, j} $$
+
 3. Update
+
 $$ w_j = w_j - \eta \frac{\partial Loss(\vec{w})}{\partial w_j}  = w_j - \eta \sum_{i=1}^N (y_i - \hat{y}_i)x_{i, j}$$
 
 ## Binary-class with gradient descent on log loss
