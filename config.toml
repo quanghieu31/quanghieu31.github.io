@@ -33,21 +33,21 @@ weight = 1
 url = "https://github.com/quanghieu31"
 
 [[params.social]]
-name = "Kaggle"
-icon = "fa fa-2x fa-brands fa-kaggle"
-weight = 2
-url = "https://www.kaggle.com/hieunguyendq"
+name = "Resume"
+icon = "fa fa-2x fa-regular fa-file-user"
+weight = 4
+url = "https://drive.google.com/file/d/1meYPsxH3nsoeQDU6NFpFiuwV63HG5v25/view?usp=sharing"
 
 [[params.social]]
 name = "LinkedIn"
 icon = "fa fa-2x fa-brands fa-linkedin"
-weight = 3
+weight = 2
 url = "https://www.linkedin.com/in/hieunguyen31/"
 
 [[params.social]]
 name = "Email"
 icon = "fa fa-2x fa-envelope"
-weight = 4
+weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"
 
 [minify]
