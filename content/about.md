@@ -6,6 +6,8 @@ Years ago, I planned to become an astronaut and play football on the moon. Time 
 
 I am a Master's student in [Computer Science and Public Policy at the University of Chicago](https://capp.uchicago.edu/). Here, I am studying a mixture of statistics, algorithms, and machine learning. My current academic focus is machine learning in cancer risk prediction and inference by carefully analyzing multimodal data and utilizing efficient embeddings/feature extraction methods. Here is my latest project on this subject: A Deep Learning Multimodal Approach to Survival Risk Prediction in Kidney Cancer Patients ([code](https://github.com/quanghieu31/multimodal-ccRCC) and [paper](https://github.com/quanghieu31/multimodal-ccRCC/blob/main/Final_Report_03_2025.pdf)).
 
+My long-term goal is to leverage data science to drive rigorous data-driven decisions that improve social and health outcomes. Here is my [resume](https://drive.google.com/file/d/1meYPsxH3nsoeQDU6NFpFiuwV63HG5v25/view?usp=sharing).
+
 I have gained extensive experience in Python and SQL through:
 
 - Teaching assistantships at UChicago: 
