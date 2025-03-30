@@ -132,7 +132,9 @@ Now, two important things:
 
 First, suppose, $z_{i,j} = 1$ if $\vec{x_i}$ is in cluster $z_k$. So, $\Pr (z_{i,k} = 1 | \vec{x}_i)$ is the probability of seeing cluster $z_k$ contains $\vec{x}_i$ or not, given $\vec{x}_i$. Bayes theorem to expand the term: 
 
-$$\Pr(z_{i,k}=1|\vec{x}_i)=\frac{\Pr(z_{k})\cdot\Pr(\vec{x}_i|z_{i,k}=1)}{\Pr(\vec{x}_i)} = \frac{\pi_k\cdot \Pr(\vec{x}_i|\vec{\mu}_k,\Sigma_k)}{\sum_{j=1}^K \pi_j\mathcal{N}(\vec{x}|\vec{\mu}_j, \Sigma_j)}$$ 
+$$
+\Pr(z_{i,k}=1 \mid \vec{x}_i) = \frac{\Pr(z_k) \cdot \Pr(\vec{x}_i \mid z_{i,k}=1)}{\Pr(\vec{x}_i)} = \frac{\pi_k \cdot \Pr(\vec{x}_i \mid \vec{\mu}_k, \Sigma_k)}{\sum_{j=1}^K \pi_j \mathcal{N}(\vec{x}_i \mid \vec{\mu}_j, \Sigma_j)}
+$$
 
 and also, each point belongs to each cluster **with some probability** and GMM is soft clustering (meaning each data point can belong to multiple clusters at the same time, with degrees of membership (probabilities or weights), instead of being assigned to just one cluster.). Thus, we define this term: 
 
@@ -142,7 +144,11 @@ This term means the expected number of points in cluster $k$ - a real number, no
 
 Second, to maximize the $\Pr(\textbf{X}|\pi, \mu, \Sigma)$, we simply need to find the derivatives w.r.t $\pi, \mu, \Sigma$, and then set them to 0, and compute these parameters such that $\Pr(\textbf{X}|\pi, \mu, \Sigma)$ has the optimal solution (max). So, look at,
 
-$$\Pr(\textbf{X}|\pi, \vec{\mu}, \Sigma) = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j\mathcal{N}(\vec{x}_i|\vec{\mu}_j,\Sigma_j) \right] = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j \Pr(\vec{x}_i) \right] = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j \frac{1}{\sqrt{(2\pi)^d|\Sigma_j|}}e^{-(-(\vec{x}_i-\vec{\mu}_j)^T\Sigma_j^{-1}(\vec{x}_i-\vec{\mu}_j)/2)} \right]$$
+$$
+\Pr(\textbf{X} \mid \pi, \vec{\mu}, \Sigma) = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j \mathcal{N}(\vec{x}_i \mid \vec{\mu}_j, \Sigma_j) \right] 
+= \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j \frac{1}{\sqrt{(2\pi)^d |\Sigma_j|}} \exp\left(-\frac{1}{2} (\vec{x}_i - \vec{\mu}_j)^T \Sigma_j^{-1} (\vec{x}_i - \vec{\mu}_j) \right) \right]
+$$
+
 
 This function is non-convex because it involves a sum of exponentials inside a product, leading to a log-likelihood that is the sum of log-sum-exp terms, which are non-convex in the parameters $\pi_j$, $\vec{\mu}_j$, and $\Sigma_j$. Thus, we **transform it using logarithm and turning this problem into a log-likelihood maximization**. Not writing everything down here, we get the following expressions for the parameters given generic cluster $k$:
 
@@ -154,7 +160,7 @@ $$\pi_k=\frac{N_k}{N}$$
 There is no closed-form solution, so we use the Expectation-Maximization (EM) algorithm to iteratively find a local maximum of the log-likelihood.
 
 What is useful to see about the above two set of expressions is that: For a cluster $k$, 
-- Parameters $\vec{\mu}_k, \Sigma_k, \pi_k \rightarrow \Pr(z_{i,k}=1|\vec{x}_i)$ (the bayes in first thing)
+- Parameters $\vec{\mu}_k$, $\Sigma_k$, $\pi_k$ $\rightarrow$ $\Pr(z_{i,k}=1|\vec{x}_i)$ (the bayes in first thing)
 - $\Pr(z_{i,k}=1|\vec{x}_i) \rightarrow \vec{\mu}_k, \Sigma_k, \pi_k$ parameters (the derivative in second thing)
 
 Since MLE can't be used because one of the variables ($z$) is hidden (we don't know the cluster assignment procedure yet before doing anything!), we can opt for Expectation Maximization or EM algorithm in which we can simply calculate the expected likelihood w.r.t the hidden variable $z$ without needing to know about it yet (initially). 
@@ -162,6 +168,9 @@ Since MLE can't be used because one of the variables ($z$) is hidden (we don't k
 The worded EM algorithm:
 1. Initialize $\theta=(\mu_k, \Sigma_k, \pi_k)$
 2. E-Step: compute expected likelihoods w.r.t hidden variable $z$. Or calculate $\Pr_{\theta}(z_{i,k}=1|\vec{x}_i)$ from the 3 paremeters in $\theta$
-3. M-Step: recompute the $\mu_k, \Sigma_k, \pi_k$ params to maximize the expected likelihoods. This means $(\mu_k, \Sigma_k, \pi_k)_{\text{new}} = \arg\max_{\(\mu_k, \Sigma_k, \pi_k\)} \Pr_{\theta}(z_{i,k}=1|\vec{x}_i)$. Repeat step 2 until convergence which means the change in log-likelihood or parameters falls below a threshold, or the log-likelihood no longer increases significantly.
+3. M-Step: recompute the $\mu_k, \Sigma_k, \pi_k$ parameters to maximize the expected likelihoods. This means
+$$(\mu_k, \Sigma_k, \pi_k)_{\text{new}} = \arg\max_{(\mu_k, \Sigma_k, \pi_k)} \Pr_{\theta}(z_{i,k}=1 \mid \vec{x}_i).$$
+Repeat step 2 until convergence, meaning the change in log-likelihood or parameters falls below a threshold, or the log-likelihood no longer increases significantly.
+
 
 GMM is better than K-means because it does not assume the same-size clusters. 
