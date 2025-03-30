@@ -167,8 +167,7 @@ Since MLE can't be used because one of the variables ($z$) is hidden (we don't k
 The worded EM algorithm:
 1. Initialize $\theta=(\mu_k, \Sigma_k, \pi_k)$
 2. E-Step: compute expected likelihoods w.r.t hidden variable $z$. Or calculate $\Pr_{\theta}(z_{i,k}=1|\vec{x}_i)$ from the 3 paremeters in $\theta$
-3. M-Step: recompute the $\mu_k, \Sigma_k, \pi_k$ parameters to maximize the expected likelihoods. This means
-$$(\mu_k, \Sigma_k, \pi_k)_{\text{new}} = \arg\max_{(\mu_k, \Sigma_k, \pi_k)} \Pr_{\theta}(z_{i,k}=1 \mid \vec{x_i})$$ Repeat step 2 until convergence, meaning the change in log-likelihood or parameters falls below a threshold, or the log-likelihood no longer increases significantly.
+3. M-Step: recompute the $\mu_k, \Sigma_k, \pi_k$ parameters to maximize the expected likelihoods. This means we get the new $$(\mu_k, \Sigma_k, \pi_k) = \arg\max_{\mu_k, \Sigma_k, \pi_k} \Pr_\theta(z_{i,k}=1 \mid \vec{x_i})$$ Repeat step 2 until convergence, meaning the change in log-likelihood or parameters falls below a threshold, or the log-likelihood no longer increases significantly.
 
 
 GMM is better than K-means because it does not assume the same-size clusters. 
