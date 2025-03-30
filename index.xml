@@ -38,9 +38,9 @@ Often the data is ambiguous in this regard.&lt;/li>
  &lt;/a>
 &lt;/h3>
 &lt;ol>
-&lt;li>&lt;a href="#Flat-clustering-Kmeans" >Flat clustering: K-means&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#Hierarchical-clustering" >Hierarchical clustering&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#Modelbased-clusteringGaussian-Mixture-Model" >Model-based clustering: Gaussian Mixture Model&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#flat-clustering-k-means" >Flat clustering: K-means&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#hiarchecical-clustering" >Hierarchical clustering&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#model-based-clustering-gaussian-mixture-model" >Model-based clustering: Gaussian Mixture Model&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;h3 id="flat-clustering-k-means">
  Flat clustering: $K$-means
@@ -56,7 +56,7 @@ Often the data is ambiguous in this regard.&lt;/li>
 &lt;/ul>
 &lt;p>Problem: Find $C_1,C_2,\ldots,C_k$ and centroids $m_1,m_2,\ldots,m_k \in \mathbb{R}^d$ that minimize this loss function:
 $$J_{\text{avg}}^2 = \sum_{j=1}^{k} \sum_{x \in C_j} d(x,m_j)^2$$
-where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic regression basics</title><link>https://quanghieu31.github.io/posts/logit-basics/</link><pubDate>Thu, 26 Dec 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/logit-basics/</guid><description>&lt;h2 id="gradient-updates-in-logistic-regression-for-binary-classification">
+where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic Regression Basics</title><link>https://quanghieu31.github.io/posts/logit-basics/</link><pubDate>Thu, 26 Dec 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/logit-basics/</guid><description>&lt;h2 id="gradient-updates-in-logistic-regression-for-binary-classification">
  Gradient updates in logistic regression for binary classification
  &lt;a class="heading-link" href="#gradient-updates-in-logistic-regression-for-binary-classification">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -69,7 +69,7 @@ where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic r
 &lt;p>For an example $i$, we have feature vector $\vec{x_{i}} = [x_{i1} , x_{i2} , \dots , x_{ip} ]^{T}$:&lt;/p>
 &lt;p>$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$&lt;/p>
 &lt;p>$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$&lt;/p>
-&lt;p>General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:&lt;/p></description></item><item><title>The role of covariance in Principal Component Analysis</title><link>https://quanghieu31.github.io/posts/pca-covariance/</link><pubDate>Tue, 10 Sep 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/pca-covariance/</guid><description>&lt;p>I recently read an interesting explanation for covariance on &lt;a href="https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean" class="external-link" target="_blank" rel="noopener">StackExchange Cross Validated&lt;/a>. The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don&amp;rsquo;t I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.&lt;/p></description></item><item><title>Multilayer perceptron</title><link>https://quanghieu31.github.io/posts/mlp/</link><pubDate>Thu, 09 May 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/mlp/</guid><description>&lt;h1 id="overview">
+&lt;p>General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:&lt;/p></description></item><item><title>The Role of Covariance in Principal Component Analysis</title><link>https://quanghieu31.github.io/posts/pca-covariance/</link><pubDate>Tue, 10 Sep 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/pca-covariance/</guid><description>&lt;p>I recently read an interesting explanation for covariance on &lt;a href="https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean" class="external-link" target="_blank" rel="noopener">StackExchange Cross Validated&lt;/a>. The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don&amp;rsquo;t I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.&lt;/p></description></item><item><title>Multilayer Perceptron</title><link>https://quanghieu31.github.io/posts/mlp/</link><pubDate>Thu, 09 May 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/mlp/</guid><description>&lt;h1 id="overview">
  Overview
  &lt;a class="heading-link" href="#overview">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
