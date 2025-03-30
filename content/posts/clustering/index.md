@@ -12,8 +12,7 @@ I realized I have used K-means clustering for too many times but never actually 
 
 ### Clustering: the Good
 - It is a natural thing to want to do with large data.
-- Can reveal a lot about the structure of data → exploratory data analysis.  
-  _e.g., finding new types of stars, patients with similar disease profiles, ..._
+- Can reveal a lot about the structure of data → exploratory data analysis.  e.g., finding new types of stars, patients with similar disease profiles, ...
 - Allows us to compress data by replacing points with their cluster representatives (called **vector quantization**).
 - Key part of finding structure in large graphs & networks.
 ### Clustering: the Bad
@@ -31,7 +30,7 @@ I realized I have used K-means clustering for too many times but never actually 
 ### Flat clustering: $K$-means
 - Input: samples ($\vec{x}_1, \vec{x}_2, \cdots, \vec{x}_n$) $\in \mathbb{R}^p$ and choosen $k$ for number of clusters wanted
 - Output: $k$ disjoint sets $C_1, C_2, \cdots, C_k$ whose union is $\{\vec{x}_1, \cdots, \vec{x}_n\}$ 
-- Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x}_i , \mu_k) = ||\vec{x}_i - \mu_k||^2 = \sum_{j=1}^p (\vec{x}_{ij} - \mu_{kj})^2$
+- Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x_i} , \mu_k) = ||\vec{x_i} - \mu_k||^2 = \sum_{j=1}^p (\vec{x_{ij}} - \mu_{kj})^2$
 
 Problem: Find $C_1,C_2,\ldots,C_k$ and centroids $m_1,m_2,\ldots,m_k \in \mathbb{R}^d$ that minimize this loss function:
 $$J_{\text{avg}}^2 = \sum_{j=1}^{k} \sum_{x \in C_j} d(x,m_j)^2$$
@@ -110,7 +109,7 @@ while len(C) > 1:
 Each data point is a pair $(\vec{x}_i, z_i)$ in which 
 - $\vec{x}_i$ is a $d$-dim vector of the $i$-th sample ($d$ is the number of features): is observed
 - $z_i \in \{1\cdots K\}$ is the cluster assignment of the $i$-th data point: is hidden. 
-The key assumption is that each $(\vec{x}_i, z_i)$ is drawn independently from some probability distribution with parameters $\theta$ or $(\vec{x}_i, z_i) \sim \Pr_\theta$. In other words, the probability distribution $\Pr_\theta$ can generate "data". This is a probabilistic model.
+The key assumption is that each $(\vec{x_i}, z_i)$ is drawn independently from some probability distribution with parameters $\theta$ or $(\vec{x_i}, z_i) \sim \Pr_\theta$. In other words, the probability distribution $\Pr_\theta$ can generate "data". This is a probabilistic model.
 
 In this particular case, we use the Gaussian model to estimate the parameters. That is, 
 $$\Pr(\vec{x})=\mathcal{N}(\vec{x}|\vec{\mu},\Sigma)=\frac{1}{\sqrt{(2\pi)^d|\Sigma|}}e^{-(-(x-\mu)^T\Sigma^{-1}(x-\mu)/2)}$$
