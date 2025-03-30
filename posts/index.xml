@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Home</title><link>https://quanghieu31.github.io/posts/</link><description>Recent content in Posts on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 26 Dec 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://quanghieu31.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Logistic regression basics</title><link>https://quanghieu31.github.io/posts/logit-basics/</link><pubDate>Thu, 26 Dec 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/logit-basics/</guid><description>&lt;h2 id="gradient-updates-in-logistic-regression-for-binary-classification">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Home</title><link>https://quanghieu31.github.io/posts/</link><description>Recent content in Posts on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 29 Mar 2025 12:00:00 +0000</lastBuildDate><atom:link href="https://quanghieu31.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Flat, Hierarchical, and Model-based Clustering</title><link>https://quanghieu31.github.io/posts/clustering/</link><pubDate>Sat, 29 Mar 2025 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/clustering/</guid><description>&lt;p>[My notes from CMSC 35400: Machine Learning, with Professor Risi Kondor, at the University of Chicago.]&lt;/p>
+&lt;p>I realized I have used K-means clustering for too many times but never actually digging into the math of it. This is a chance for me to solidify my understanding of these powerful unsupervised learning methods.&lt;/p>
+&lt;h3 id="clustering-the-good">
+ Clustering: the Good
+ &lt;a class="heading-link" href="#clustering-the-good">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>It is a natural thing to want to do with large data.&lt;/li>
+&lt;li>Can reveal a lot about the structure of data → exploratory data analysis.&lt;br>
+&lt;em>e.g., finding new types of stars, patients with similar disease profiles, &amp;hellip;&lt;/em>&lt;/li>
+&lt;li>Allows us to compress data by replacing points with their cluster representatives (called &lt;strong>vector quantization&lt;/strong>).&lt;/li>
+&lt;li>Key part of finding structure in large graphs &amp;amp; networks.&lt;/li>
+&lt;/ul>
+&lt;h3 id="clustering-the-bad">
+ Clustering: the Bad
+ &lt;a class="heading-link" href="#clustering-the-bad">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>It’s an unsupervised problem → always harder to formalize.&lt;/li>
+&lt;li>Ill-defined: different objective functions are possible, no clear winner.&lt;br>
+Even after clustering, it&amp;rsquo;s hard to say whether the result is good or bad → subjective.&lt;/li>
+&lt;li>What is the “correct” number of clusters? Also subjective.&lt;br>
+Often the data is ambiguous in this regard.&lt;/li>
+&lt;li>End users may attribute too much significance to clusters, with unforeseeable consequences.&lt;/li>
+&lt;li>Compared to supervised ML, the theory is in its infancy.&lt;/li>
+&lt;/ul>
+&lt;h3 id="types-of-clustering-to-be-discussed">
+ Types of clustering to be discussed:
+ &lt;a class="heading-link" href="#types-of-clustering-to-be-discussed">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;a href="#Flat-clustering-Kmeans" >Flat clustering: K-means&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#Hierarchical-clustering" >Hierarchical clustering&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#Modelbased-clusteringGaussian-Mixture-Model" >Model-based clustering: Gaussian Mixture Model&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h3 id="flat-clustering-k-means">
+ Flat clustering: $K$-means
+ &lt;a class="heading-link" href="#flat-clustering-k-means">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Input: samples ($\vec{x}_1, \vec{x}_2, \cdots, \vec{x}_n$) $\in \mathbb{R}^p$ and choosen $k$ for number of clusters wanted&lt;/li>
+&lt;li>Output: $k$ disjoint sets $C_1, C_2, \cdots, C_k$ whose union is ${\vec{x}_1, \cdots, \vec{x}_n}$&lt;/li>
+&lt;li>Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x}&lt;em>i , \mu_k) = ||\vec{x}&lt;em>i - \mu_k||^2 = \sum&lt;/em>{j=1}^p (\vec{x}&lt;/em>{ij} - \mu_{kj})^2$&lt;/li>
+&lt;/ul>
+&lt;p>Problem: Find $C_1,C_2,\ldots,C_k$ and centroids $m_1,m_2,\ldots,m_k \in \mathbb{R}^d$ that minimize this loss function:
+$$J_{\text{avg}}^2 = \sum_{j=1}^{k} \sum_{x \in C_j} d(x,m_j)^2$$
+where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic regression basics</title><link>https://quanghieu31.github.io/posts/logit-basics/</link><pubDate>Thu, 26 Dec 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/logit-basics/</guid><description>&lt;h2 id="gradient-updates-in-logistic-regression-for-binary-classification">
  Gradient updates in logistic regression for binary classification
  &lt;a class="heading-link" href="#gradient-updates-in-logistic-regression-for-binary-classification">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
