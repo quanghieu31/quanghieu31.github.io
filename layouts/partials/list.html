@@ -9,13 +9,13 @@
         {{- i18n (lower .Title) | default .Title | title -}}
       </a>
     </h1>
-
-    {{ if eq .Title "Posts" }}
+    
+    {{ if eq .Section "posts" }}
     <p style="margin-left: 75px; font-size: 16px; max-width: 600px;">
-      Here is where I occasionally post my writing attempts to understand the math behind some key machine learning concepts and maybe my thoughts on other things too.
+      Here is where I occasionally post my writing attempts to understand the math behind some key machine learning concepts and maybe my own thoughts on other matters too.
     </p>
   {{ end }}
- 
+  
   </header>
   {{ .Content }}
   <ul>
