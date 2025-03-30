@@ -11,6 +11,7 @@ My long-term goal is to leverage data science to drive rigorous data-driven deci
 I have gained extensive experience in Python and SQL through:
 
 - Teaching assistantships at UChicago: 
+    - CAPP 30254: Machine Learning for Public Policy 
     - MPCS 51042: Python programming
     - CAPP 30122: Computer Science with Applications 2 
 - Problem-solving on [LeetCode](https://leetcode.com/u/quanghieu31/) and [Advent-of-Code puzzles](https://github.com/quanghieu31/advent-of-code) 
