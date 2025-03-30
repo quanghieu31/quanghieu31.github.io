@@ -1,5 +1,5 @@
 ---
-title: "Logistic regression basics"
+title: "Logistic Regression Basics"
 date: 2024-12-26T12:00:00Z
 draft: false
 layout: "single"

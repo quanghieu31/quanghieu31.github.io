@@ -25,9 +25,9 @@ I realized I have used K-means clustering for too many times but never actually 
 - End users may attribute too much significance to clusters, with unforeseeable consequences.
 - Compared to supervised ML, the theory is in its infancy.
 ### Types of clustering to be discussed:
-1. [Flat clustering: K-means](#Flat-clustering-Kmeans)
-2. [Hierarchical clustering](#Hierarchical-clustering)
-3. [Model-based clustering: Gaussian Mixture Model](#Modelbased-clusteringGaussian-Mixture-Model)
+1. [Flat clustering: K-means](#flat-clustering-k-means)
+2. [Hierarchical clustering](#hiarchecical-clustering)
+3. [Model-based clustering: Gaussian Mixture Model](#model-based-clustering-gaussian-mixture-model)
 ### Flat clustering: $K$-means
 - Input: samples ($\vec{x}_1, \vec{x}_2, \cdots, \vec{x}_n$) $\in \mathbb{R}^p$ and choosen $k$ for number of clusters wanted
 - Output: $k$ disjoint sets $C_1, C_2, \cdots, C_k$ whose union is $\{\vec{x}_1, \cdots, \vec{x}_n\}$ 
@@ -109,7 +109,7 @@ while len(C) > 1:
 ### Model-based clustering: Gaussian Mixture Model
 Each data point is a pair $(\vec{x}_i, z_i)$ in which 
 - $\vec{x}_i$ is a $d$-dim vector of the $i$-th sample ($d$ is the number of features): is observed
-- $z_i \in {1\cdots K}$ is the cluster assignment of the $i$-th data point: is hidden. 
+- $z_i \in \{1\cdots K\}$ is the cluster assignment of the $i$-th data point: is hidden. 
 The key assumption is that each $(\vec{x}_i, z_i)$ is drawn independently from some probability distribution with parameters $\theta$ or $(\vec{x}_i, z_i) \sim \Pr_\theta$. In other words, the probability distribution $\Pr_\theta$ can generate "data". This is a probabilistic model.
 
 In this particular case, we use the Gaussian model to estimate the parameters. That is, 
@@ -130,11 +130,22 @@ The above probability means that, given the set of parameters (3 of them), the p
 
 Now, two important things:
 
-First, suppose, $z_{i,j} = 1$ if $\vec{x_i}$ is in cluster $z_k$. So, $\Pr (z_{i,k} = 1 | \vec{x}_i)$ is the probability of seeing cluster $z_k$ contains $\vec{x}_i$ or not, given $\vec{x}_i$. Bayes theorem to expand the term: $$\Pr(z_{i,k}=1|\vec{x}_i)=\frac{\Pr(z_{k})\cdot\Pr(\vec{x}_i|z_{i,k}=1)}{\Pr(\vec{x}_i)} = \frac{\pi_k\cdot \Pr(\vec{x}_i|\vec{\mu}_k,\Sigma_k)}{\sum_{j=1}^K \pi_j\mathcal{N}(\vec{x}|\vec{\mu}_j, \Sigma_j)}$$ and also, each point belongs to each cluster **with some probability** and GMM is soft clustering (meaning each data point can belong to multiple clusters at the same time, with degrees of membership (probabilities or weights), instead of being assigned to just one cluster.). Thus, we define this term: $$N_k=\sum_{i=1}^N \Pr(z_{i,k} =1 |\vec{x}_i)$$ This term means the expected number of points in cluster $k$ - a real number, not necessarily an integer.
+First, suppose, $z_{i,j} = 1$ if $\vec{x_i}$ is in cluster $z_k$. So, $\Pr (z_{i,k} = 1 | \vec{x}_i)$ is the probability of seeing cluster $z_k$ contains $\vec{x}_i$ or not, given $\vec{x}_i$. Bayes theorem to expand the term: 
+
+$$\Pr(z_{i,k}=1|\vec{x}_i)=\frac{\Pr(z_{k})\cdot\Pr(\vec{x}_i|z_{i,k}=1)}{\Pr(\vec{x}_i)} = \frac{\pi_k\cdot \Pr(\vec{x}_i|\vec{\mu}_k,\Sigma_k)}{\sum_{j=1}^K \pi_j\mathcal{N}(\vec{x}|\vec{\mu}_j, \Sigma_j)}$$ 
+
+and also, each point belongs to each cluster **with some probability** and GMM is soft clustering (meaning each data point can belong to multiple clusters at the same time, with degrees of membership (probabilities or weights), instead of being assigned to just one cluster.). Thus, we define this term: 
+
+$$N_k=\sum_{i=1}^N \Pr(z_{i,k} =1 |\vec{x}_i)$$ 
+
+This term means the expected number of points in cluster $k$ - a real number, not necessarily an integer.
 
 Second, to maximize the $\Pr(\textbf{X}|\pi, \mu, \Sigma)$, we simply need to find the derivatives w.r.t $\pi, \mu, \Sigma$, and then set them to 0, and compute these parameters such that $\Pr(\textbf{X}|\pi, \mu, \Sigma)$ has the optimal solution (max). So, look at,
+
 $$\Pr(\textbf{X}|\pi, \vec{\mu}, \Sigma) = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j\mathcal{N}(\vec{x}_i|\vec{\mu}_j,\Sigma_j) \right] = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j \Pr(\vec{x}_i) \right] = \prod_{i=1}^{N} \left[ \sum_{j=1}^K \pi_j \frac{1}{\sqrt{(2\pi)^d|\Sigma_j|}}e^{-(-(\vec{x}_i-\vec{\mu}_j)^T\Sigma_j^{-1}(\vec{x}_i-\vec{\mu}_j)/2)} \right]$$
+
 This function is non-convex because it involves a sum of exponentials inside a product, leading to a log-likelihood that is the sum of log-sum-exp terms, which are non-convex in the parameters $\pi_j$, $\vec{\mu}_j$, and $\Sigma_j$. Thus, we **transform it using logarithm and turning this problem into a log-likelihood maximization**. Not writing everything down here, we get the following expressions for the parameters given generic cluster $k$:
+
 $$\mu_k=\frac{1}{N_k}\sum_{i=1}^N\Pr(z_{i,k}=1|\vec{x}_i)\cdot\vec{x}_i$$
 
 $$\Sigma_k=\frac{1}{N_k} = \sum_{i=1}^N\Pr(z_{i,k}=1|\vec{x}_i)(\vec{x}_i-\vec{\mu}_k)(\vec{x}_i-\vec{\mu}_k)^T$$
@@ -151,6 +162,6 @@ Since MLE can't be used because one of the variables ($z$) is hidden (we don't k
 The worded EM algorithm:
 1. Initialize $\theta=(\mu_k, \Sigma_k, \pi_k)$
 2. E-Step: compute expected likelihoods w.r.t hidden variable $z$. Or calculate $\Pr_{\theta}(z_{i,k}=1|\vec{x}_i)$ from the 3 paremeters in $\theta$
-3. M-Step: recompute the $\mu_k, \Sigma_k, \pi_k$ params to maximize the expected likelihoods. This means $(\mu_k, \Sigma_k, \pi_k)_{new} = \arg\max_{(\mu_k, \Sigma_k, \pi_k)} \Pr_{\theta}(z_{i,k}=1|\vec{x}_i)$. Repeat step 2 until convergence which means the change in log-likelihood or parameters falls below a threshold, or the log-likelihood no longer increases significantly.
+3. M-Step: recompute the $\mu_k, \Sigma_k, \pi_k$ params to maximize the expected likelihoods. This means $(\mu_k, \Sigma_k, \pi_k)_{\text{new}} = \arg\max_{\(\mu_k, \Sigma_k, \pi_k\)} \Pr_{\theta}(z_{i,k}=1|\vec{x}_i)$. Repeat step 2 until convergence which means the change in log-likelihood or parameters falls below a threshold, or the log-likelihood no longer increases significantly.
 
 GMM is better than K-means because it does not assume the same-size clusters. 

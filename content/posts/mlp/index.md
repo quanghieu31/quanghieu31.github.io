@@ -1,5 +1,5 @@
 ---
-title: "Multilayer perceptron"
+title: "Multilayer Perceptron"
 date: 2024-05-09T12:00:00Z
 draft: false
 layout: "single"

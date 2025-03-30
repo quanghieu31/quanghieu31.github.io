@@ -1,5 +1,5 @@
 ---
-title: "The role of covariance in Principal Component Analysis"
+title: "The Role of Covariance in Principal Component Analysis"
 date: 2024-09-10T12:00:00Z
 draft: false
 layout: "single"
