@@ -1,7 +1,7 @@
 <section class="container list">
   <header>
     <h1 class="title">
-      <a class="title-link" href="{{ .Permalink | safeURL }}"  style="font-size: 22px; margin-left: 75px">
+      <a class="title-link" href="{{ .Permalink | safeURL }}">
         {{- if eq .Kind "term" -}}
           {{- i18n .Data.Plural 1 | title -}}
           {{- print ": " -}}
@@ -9,13 +9,6 @@
         {{- i18n (lower .Title) | default .Title | title -}}
       </a>
     </h1>
-    
-    {{ if eq .Section "posts" }}
-    <p style="margin-left: 75px; font-size: 16px; max-width: 600px;">
-      Here is where I occasionally post my writing attempts to understand the math behind some key machine learning concepts and maybe my own thoughts on other matters too.
-    </p>
-  {{ end }}
-  
   </header>
   {{ .Content }}
   <ul>
