@@ -9,8 +9,7 @@
 &lt;/h3>
 &lt;ul>
 &lt;li>It is a natural thing to want to do with large data.&lt;/li>
-&lt;li>Can reveal a lot about the structure of data → exploratory data analysis.&lt;br>
-&lt;em>e.g., finding new types of stars, patients with similar disease profiles, &amp;hellip;&lt;/em>&lt;/li>
+&lt;li>Can reveal a lot about the structure of data → exploratory data analysis. e.g., finding new types of stars, patients with similar disease profiles, &amp;hellip;&lt;/li>
 &lt;li>Allows us to compress data by replacing points with their cluster representatives (called &lt;strong>vector quantization&lt;/strong>).&lt;/li>
 &lt;li>Key part of finding structure in large graphs &amp;amp; networks.&lt;/li>
 &lt;/ul>
@@ -52,7 +51,7 @@ Often the data is ambiguous in this regard.&lt;/li>
 &lt;ul>
 &lt;li>Input: samples ($\vec{x}_1, \vec{x}_2, \cdots, \vec{x}_n$) $\in \mathbb{R}^p$ and choosen $k$ for number of clusters wanted&lt;/li>
 &lt;li>Output: $k$ disjoint sets $C_1, C_2, \cdots, C_k$ whose union is ${\vec{x}_1, \cdots, \vec{x}_n}$&lt;/li>
-&lt;li>Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x}&lt;em>i , \mu_k) = ||\vec{x}&lt;em>i - \mu_k||^2 = \sum&lt;/em>{j=1}^p (\vec{x}&lt;/em>{ij} - \mu_{kj})^2$&lt;/li>
+&lt;li>Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x_i} , \mu_k) = ||\vec{x_i} - \mu_k||^2 = \sum_{j=1}^p (\vec{x_{ij}} - \mu_{kj})^2$&lt;/li>
 &lt;/ul>
 &lt;p>Problem: Find $C_1,C_2,\ldots,C_k$ and centroids $m_1,m_2,\ldots,m_k \in \mathbb{R}^d$ that minimize this loss function:
 $$J_{\text{avg}}^2 = \sum_{j=1}^{k} \sum_{x \in C_j} d(x,m_j)^2$$
