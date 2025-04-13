@@ -28,27 +28,27 @@ enableEmoji = true
 
 [[params.social]]
 name = "Github"
-icon = "fa fa-2x fa-github"
+icon = "fa fa-3x fa-github"
 weight = 1
 url = "https://github.com/quanghieu31"
 
 [[params.social]]
 name = "LinkedIn"
-icon = "fa fa-2x fa-brands fa-linkedin"
+icon = "fa fa-3x fa-brands fa-linkedin"
 weight = 2
 url = "https://www.linkedin.com/in/hieunguyen31/"
 
 [[params.social]]
 name = "Email"
-icon = "fa fa-2x fa-envelope"
+icon = "fa fa-3x fa-envelope"
 weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"
 
 [[params.social]]
 name = "Resume"
-icon = "fa fa-2x fa-regular fa-id-badge"
+icon = "fa-regular fa-3x fa-address-card"
 weight = 4
-url = "https://drive.google.com/file/d/1meYPsxH3nsoeQDU6NFpFiuwV63HG5v25/view?usp=sharing"
+url = "https://drive.google.com/file/d/1O3lV8Nw9wEw6L0APWUUQXP_mvUbAEdYk/view?usp=sharing"
 
 [minify]
   disable = ["CSS"]

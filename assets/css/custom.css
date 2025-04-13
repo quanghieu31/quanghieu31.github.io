@@ -14,3 +14,22 @@ code.has-jax {
     border: none !important;
     font-size: 100%;
 }
+
+.about h1 {
+    font-size: 3.6rem !important;
+    font-weight: 7000;
+    margin-top: 1rem;
+  }
+
+/* .container.centered .about img.avatar {
+    width: 280px !important;
+    height: 280px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 25%;
+    display: block;
+    margin: 0 auto;
+  }
+   */
