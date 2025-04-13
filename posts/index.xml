@@ -37,9 +37,12 @@ Often the data is ambiguous in this regard.&lt;/li>
  &lt;/a>
 &lt;/h3>
 &lt;ol>
-&lt;li>&lt;a href="#flat-clustering-k-means" >Flat clustering: K-means&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#hiarchecical-clustering" >Hierarchical clustering&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#model-based-clustering-gaussian-mixture-model" >Model-based clustering: Gaussian Mixture Model&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#flat-clustering-k-means">Flat clustering: K-means&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="#hiarchecical-clustering">Hierarchical clustering&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="#model-based-clustering-gaussian-mixture-model">Model-based clustering: Gaussian Mixture Model&lt;/a>
+&lt;/li>
 &lt;/ol>
 &lt;h3 id="flat-clustering-k-means">
  Flat clustering: $K$-means
@@ -68,7 +71,8 @@ where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic R
 &lt;p>For an example $i$, we have feature vector $\vec{x_{i}} = [x_{i1} , x_{i2} , \dots , x_{ip} ]^{T}$:&lt;/p>
 &lt;p>$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$&lt;/p>
 &lt;p>$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$&lt;/p>
-&lt;p>General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:&lt;/p></description></item><item><title>The Role of Covariance in Principal Component Analysis</title><link>https://quanghieu31.github.io/posts/pca-covariance/</link><pubDate>Tue, 10 Sep 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/pca-covariance/</guid><description>&lt;p>I recently read an interesting explanation for covariance on &lt;a href="https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean" class="external-link" target="_blank" rel="noopener">StackExchange Cross Validated&lt;/a>. The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don&amp;rsquo;t I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.&lt;/p></description></item><item><title>Multilayer Perceptron</title><link>https://quanghieu31.github.io/posts/mlp/</link><pubDate>Thu, 09 May 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/mlp/</guid><description>&lt;h1 id="overview">
+&lt;p>General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:&lt;/p></description></item><item><title>The Role of Covariance in Principal Component Analysis</title><link>https://quanghieu31.github.io/posts/pca-covariance/</link><pubDate>Tue, 10 Sep 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/pca-covariance/</guid><description>&lt;p>I recently read an interesting explanation for covariance on &lt;a href="https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean">StackExchange Cross Validated&lt;/a>
+. The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don&amp;rsquo;t I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.&lt;/p></description></item><item><title>Multilayer Perceptron</title><link>https://quanghieu31.github.io/posts/mlp/</link><pubDate>Thu, 09 May 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/mlp/</guid><description>&lt;h1 id="overview">
  Overview
  &lt;a class="heading-link" href="#overview">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -93,4 +97,6 @@ where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic R
 &lt;/li>
 &lt;/ul>
 &lt;p>This is my attempt to draw a neural network for one single training example:&lt;/p></description></item><item><title>First few words</title><link>https://quanghieu31.github.io/posts/first/</link><pubDate>Mon, 19 Dec 2022 23:44:17 +0700</pubDate><guid>https://quanghieu31.github.io/posts/first/</guid><description>&lt;p>This is for Hieu in the future. Very nice working on your first web! After many weekend hours, you did it. It was thrilling learning experience. I am proud of you, please don&amp;rsquo;t be skeptical of yourself, even though I bet that you are right now haha. Anyhow, if you feel so, remember that everything is going to be daijoubu.&lt;/p>
-&lt;p>Many thanks to my bro (&lt;a href="https://cryptsu.github.io/" class="external-link" target="_blank" rel="noopener">https://cryptsu.github.io/&lt;/a>) who has helped me so much during the design and development. My web structure was a mess as I had zero basic knowledge and only picked up new things along the way. He patiently taught me all the essential concepts and practices and helped me go through each of my HTML layout files and fix my errors that had taken me 1 month to find without success :D. Also, grateful for anh Hieu Phay (&lt;a href="https://hieuphay.com/en/" class="external-link" target="_blank" rel="noopener">https://hieuphay.com/en/&lt;/a>), his guide showed me the rules and practices for building a good and effective website. I used to work with him in such a short time but his thinking and work ethics are still a significant part of my life compass.&lt;/p></description></item></channel></rss>
+&lt;p>Many thanks to my bro (&lt;a href="https://cryptsu.github.io/">https://cryptsu.github.io/&lt;/a>
+) who has helped me so much during the design and development. My web structure was a mess as I had zero basic knowledge and only picked up new things along the way. He patiently taught me all the essential concepts and practices and helped me go through each of my HTML layout files and fix my errors that had taken me 1 month to find without success :D. Also, grateful for anh Hieu Phay (&lt;a href="https://hieuphay.com/en/">https://hieuphay.com/en/&lt;/a>
+), his guide showed me the rules and practices for building a good and effective website. I used to work with him in such a short time but his thinking and work ethics are still a significant part of my life compass.&lt;/p></description></item></channel></rss>
