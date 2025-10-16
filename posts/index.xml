@@ -1,102 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Home</title><link>https://quanghieu31.github.io/posts/</link><description>Recent content in Posts on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 29 Mar 2025 12:00:00 +0000</lastBuildDate><atom:link href="https://quanghieu31.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Flat, Hierarchical, and Model-based Clustering</title><link>https://quanghieu31.github.io/posts/clustering/</link><pubDate>Sat, 29 Mar 2025 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/clustering/</guid><description>&lt;p>[My notes from CMSC 35400: Machine Learning, with Professor Risi Kondor, at the University of Chicago.]&lt;/p>
-&lt;p>I realized I have used K-means clustering for too many times but never actually digging into the math of it. This is a chance for me to solidify my understanding of these powerful unsupervised learning methods.&lt;/p>
-&lt;h3 id="clustering-the-good">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Home</title><link>https://quanghieu31.github.io/posts/</link><description>Recent content in Posts on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 16 Oct 2025 12:00:00 +0000</lastBuildDate><atom:link href="https://quanghieu31.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>test</title><link>https://quanghieu31.github.io/posts/test/</link><pubDate>Thu, 16 Oct 2025 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/test/</guid><description>&lt;p&gt;test&lt;/p&gt;</description></item><item><title>Flat, Hierarchical, and Model-based Clustering</title><link>https://quanghieu31.github.io/posts/clustering/</link><pubDate>Sat, 29 Mar 2025 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/clustering/</guid><description>&lt;p&gt;[My notes from CMSC 35400: Machine Learning, with Professor Risi Kondor, at the University of Chicago.]&lt;/p&gt;
+&lt;p&gt;I realized I have used K-means clustering for too many times but never actually digging into the math of it. This is a chance for me to solidify my understanding of these powerful unsupervised learning methods.&lt;/p&gt;
+&lt;h3 id="clustering-the-good"&gt;
  Clustering: the Good
- &lt;a class="heading-link" href="#clustering-the-good">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;ul>
-&lt;li>It is a natural thing to want to do with large data.&lt;/li>
-&lt;li>Can reveal a lot about the structure of data → exploratory data analysis. e.g., finding new types of stars, patients with similar disease profiles, &amp;hellip;&lt;/li>
-&lt;li>Allows us to compress data by replacing points with their cluster representatives (called &lt;strong>vector quantization&lt;/strong>).&lt;/li>
-&lt;li>Key part of finding structure in large graphs &amp;amp; networks.&lt;/li>
-&lt;/ul>
-&lt;h3 id="clustering-the-bad">
+ &lt;a class="heading-link" href="#clustering-the-good"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a natural thing to want to do with large data.&lt;/li&gt;
+&lt;li&gt;Can reveal a lot about the structure of data → exploratory data analysis. e.g., finding new types of stars, patients with similar disease profiles, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Allows us to compress data by replacing points with their cluster representatives (called &lt;strong&gt;vector quantization&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;Key part of finding structure in large graphs &amp;amp; networks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="clustering-the-bad"&gt;
  Clustering: the Bad
- &lt;a class="heading-link" href="#clustering-the-bad">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;ul>
-&lt;li>It’s an unsupervised problem → always harder to formalize.&lt;/li>
-&lt;li>Ill-defined: different objective functions are possible, no clear winner.&lt;br>
-Even after clustering, it&amp;rsquo;s hard to say whether the result is good or bad → subjective.&lt;/li>
-&lt;li>What is the “correct” number of clusters? Also subjective.&lt;br>
-Often the data is ambiguous in this regard.&lt;/li>
-&lt;li>End users may attribute too much significance to clusters, with unforeseeable consequences.&lt;/li>
-&lt;li>Compared to supervised ML, the theory is in its infancy.&lt;/li>
-&lt;/ul>
-&lt;h3 id="types-of-clustering-to-be-discussed">
+ &lt;a class="heading-link" href="#clustering-the-bad"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s an unsupervised problem → always harder to formalize.&lt;/li&gt;
+&lt;li&gt;Ill-defined: different objective functions are possible, no clear winner.&lt;br&gt;
+Even after clustering, it&amp;rsquo;s hard to say whether the result is good or bad → subjective.&lt;/li&gt;
+&lt;li&gt;What is the “correct” number of clusters? Also subjective.&lt;br&gt;
+Often the data is ambiguous in this regard.&lt;/li&gt;
+&lt;li&gt;End users may attribute too much significance to clusters, with unforeseeable consequences.&lt;/li&gt;
+&lt;li&gt;Compared to supervised ML, the theory is in its infancy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="types-of-clustering-to-be-discussed"&gt;
  Types of clustering to be discussed:
- &lt;a class="heading-link" href="#types-of-clustering-to-be-discussed">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>&lt;a href="#flat-clustering-k-means">Flat clustering: K-means&lt;/a>
-&lt;/li>
-&lt;li>&lt;a href="#hiarchecical-clustering">Hierarchical clustering&lt;/a>
-&lt;/li>
-&lt;li>&lt;a href="#model-based-clustering-gaussian-mixture-model">Model-based clustering: Gaussian Mixture Model&lt;/a>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="flat-clustering-k-means">
+ &lt;a class="heading-link" href="#types-of-clustering-to-be-discussed"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#flat-clustering-k-means"&gt;Flat clustering: K-means&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#hiarchecical-clustering"&gt;Hierarchical clustering&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#model-based-clustering-gaussian-mixture-model"&gt;Model-based clustering: Gaussian Mixture Model&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="flat-clustering-k-means"&gt;
  Flat clustering: $K$-means
- &lt;a class="heading-link" href="#flat-clustering-k-means">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;ul>
-&lt;li>Input: samples ($\vec{x}_1, \vec{x}_2, \cdots, \vec{x}_n$) $\in \mathbb{R}^p$ and choosen $k$ for number of clusters wanted&lt;/li>
-&lt;li>Output: $k$ disjoint sets $C_1, C_2, \cdots, C_k$ whose union is ${\vec{x}_1, \cdots, \vec{x}_n}$&lt;/li>
-&lt;li>Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x_i} , \mu_k) = ||\vec{x_i} - \mu_k||^2 = \sum_{j=1}^p (\vec{x_{ij}} - \mu_{kj})^2$&lt;/li>
-&lt;/ul>
-&lt;p>Problem: Find $C_1,C_2,\ldots,C_k$ and centroids $m_1,m_2,\ldots,m_k \in \mathbb{R}^d$ that minimize this loss function:
+ &lt;a class="heading-link" href="#flat-clustering-k-means"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Input: samples ($\vec{x}_1, \vec{x}_2, \cdots, \vec{x}_n$) $\in \mathbb{R}^p$ and choosen $k$ for number of clusters wanted&lt;/li&gt;
+&lt;li&gt;Output: $k$ disjoint sets $C_1, C_2, \cdots, C_k$ whose union is ${\vec{x}_1, \cdots, \vec{x}_n}$&lt;/li&gt;
+&lt;li&gt;Clustering depends on a distance metric, i.e. the simplest would be the Euclidean distance or $d(\vec{x_i} , \mu_k) = ||\vec{x_i} - \mu_k||^2 = \sum_{j=1}^p (\vec{x_{ij}} - \mu_{kj})^2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Problem: Find $C_1,C_2,\ldots,C_k$ and centroids $m_1,m_2,\ldots,m_k \in \mathbb{R}^d$ that minimize this loss function:
 $$J_{\text{avg}}^2 = \sum_{j=1}^{k} \sum_{x \in C_j} d(x,m_j)^2$$
-where $d(x,m_j) = |x - m_j|$.&lt;/p></description></item><item><title>Logistic Regression Basics</title><link>https://quanghieu31.github.io/posts/logit-basics/</link><pubDate>Thu, 26 Dec 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/logit-basics/</guid><description>&lt;h2 id="gradient-updates-in-logistic-regression-for-binary-classification">
+where $d(x,m_j) = |x - m_j|$.&lt;/p&gt;</description></item><item><title>Logistic Regression Basics</title><link>https://quanghieu31.github.io/posts/logit-basics/</link><pubDate>Thu, 26 Dec 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/logit-basics/</guid><description>&lt;h2 id="gradient-updates-in-logistic-regression-for-binary-classification"&gt;
  Gradient updates in logistic regression for binary classification
- &lt;a class="heading-link" href="#gradient-updates-in-logistic-regression-for-binary-classification">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$&lt;/li>
-&lt;/ul>
-&lt;p>For an example $i$, we have feature vector $\vec{x_{i}} = [x_{i1} , x_{i2} , \dots , x_{ip} ]^{T}$:&lt;/p>
-&lt;p>$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$&lt;/p>
-&lt;p>$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$&lt;/p>
-&lt;p>General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:&lt;/p></description></item><item><title>The Role of Covariance in Principal Component Analysis</title><link>https://quanghieu31.github.io/posts/pca-covariance/</link><pubDate>Tue, 10 Sep 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/pca-covariance/</guid><description>&lt;p>I recently read an interesting explanation for covariance on &lt;a href="https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean">StackExchange Cross Validated&lt;/a>
-. The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don&amp;rsquo;t I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.&lt;/p></description></item><item><title>Multilayer Perceptron</title><link>https://quanghieu31.github.io/posts/mlp/</link><pubDate>Thu, 09 May 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/mlp/</guid><description>&lt;h1 id="overview">
+ &lt;a class="heading-link" href="#gradient-updates-in-logistic-regression-for-binary-classification"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Predicted probabilities, $\hat{y}$, and Sigmoid function $\sigma (\cdot)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For an example $i$, we have feature vector $\vec{x_{i}} = [x_{i1} , x_{i2} , \dots , x_{ip} ]^{T}$:&lt;/p&gt;
+&lt;p&gt;$$ z_i = \vec{w}^T \cdot \vec{x}_i + b $$&lt;/p&gt;
+&lt;p&gt;$$ \hat{y}_i = \sigma(z_i) = \frac{1}{1+e^{-z_i}} = \frac{1}{1+e^{-\vec{w}^T \vec{x}_i-b}} \in [0,1] $$&lt;/p&gt;
+&lt;p&gt;General estimated probabilities or likelihood of observing the data $(\vec{x}_i, y_i)$:&lt;/p&gt;</description></item><item><title>The Role of Covariance in Principal Component Analysis</title><link>https://quanghieu31.github.io/posts/pca-covariance/</link><pubDate>Tue, 10 Sep 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/pca-covariance/</guid><description>&lt;p&gt;I recently read an interesting explanation for covariance on &lt;a href="https://stats.stackexchange.com/questions/18058/how-would-you-explain-covariance-to-someone-who-understands-only-the-mean"&gt;StackExchange Cross Validated&lt;/a&gt;
+. The usage of rectangles and colors is very intuitive to see the directions, means, and strengths given information on covariance and correlation. It brings me to another (not very relevant) thought: I know Principal Component Analysis (PCA) involves a loosely ranking and selection of components based on their variances. Why don&amp;rsquo;t I try implementing this by exploring the use of covariance matrix in this very popular dimension reduction/variable selection method.&lt;/p&gt;</description></item><item><title>Multilayer Perceptron</title><link>https://quanghieu31.github.io/posts/mlp/</link><pubDate>Thu, 09 May 2024 12:00:00 +0000</pubDate><guid>https://quanghieu31.github.io/posts/mlp/</guid><description>&lt;h1 id="overview"&gt;
  Overview
- &lt;a class="heading-link" href="#overview">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;p>Goal: Explain how multilayer perceptron model is trained. Mostly for me to understand the foundation.&lt;/p>
-&lt;p>Half of the battle is the configurations and notations:&lt;/p>
-&lt;ul>
-&lt;li>Suppose we want to classify 25x25 images and have 10 output labels $(\textbf{y})$. The data for training are labeled and cleaned.&lt;/li>
-&lt;li>There are $m$ instances in the data, 625 features, and 10 labels.&lt;/li>
-&lt;li>The data can be represented as a $m \times 625$ matrix or tabular-type. For simplicity, we will work with each single training example (i.e. some $x_0$). That is, the input layer is a $1 \times 625$. As a convention (I believe), we should transpose this matrix and get the $625 \times 1$ input layer. Then, the output layer is the activations of 10 labels which is a $10 \times 1$ matrix. Output layer notation: $\textbf{a}^{(3)} = [ [a_0^{(3)}], [a_1^{(3)}], \ldots, [a_{9}^{(3)}]]$. To be more general, let $j$ index the output matrix&amp;rsquo;s elements.&lt;/li>
-&lt;li>Choose 2 hidden layers: the first layer has 5 neurons and uses ReLU as the activation function and the second layer has 8 neurons and uses a softmax function. The number of neurons is arbitrarily selected. Respective layer notations: $\textbf{a}^{(1)} = [[a_0^{(1)}], [a_1^{(1)}], \ldots, [a_4^{(1)}]]$ and $\textbf{a}^{(2)} = [[a_0^{(2)}], [a_1^{(2)}], \ldots, [a_7^{(2)} ]]$. To be more general, let $k$ index the layer (2) matrix&amp;rsquo;s elements and let $h$ index the layer (1) matrix&amp;rsquo;s elements.&lt;/li>
-&lt;li>Choose the Mean Squared Error (MSE) loss function. For one single training example $x_i$, $ℒ_i = \sum_{j=0}^{9} (a_j^{(3)} - y_j)^{2}$. Then, the overall loss function for all training examples is $ℒ = \frac{1}{m} \sum_{i=0}^{m-1} \mathscr{L_i}$.&lt;/li>
-&lt;li>Choose the Stochastic Gradient Descent technique for mini-batching and randomization optimization. Iterate through each training example (or randomly selected mini-batches of examples) and compute the gradient of the loss function with respect to the $W$ and $b$ parameters using that example or mini-batch. Update the parameters with the computed gradients and a learning rate. Repeat the process for multiple iterations (epochs) until convergence or a stopping criterion is met.&lt;/li>
-&lt;li>Last but not least: weight and bias parameters. They appear in each of the layers except for input layer.
-&lt;ul>
-&lt;li>$\textbf{W}^{(1)}$ and $\textbf{b}^{(1)}$ denote the weights and biases of layer (1) in which $\textbf{W}^{(1)}$ is a $5 \times 625$ matrix and $\textbf{b}^{(1)}$ is a $5 \times 1$ matrix.&lt;/li>
-&lt;li>$\textbf{W}^{(2)}$ and $\textbf{b}^{(2)}$ denote the weights and biases of layer (2) in which $\textbf{W}^{(2)}$ is a $8 \times 5$ matrix and $\textbf{b}^{(2)}$ is a $8 \times 1$ matrix.&lt;/li>
-&lt;li>$\textbf{W}^{(3)}$ and $\textbf{b}^{(3)}$ denote the weights and biases of output layer in which $\textbf{W}^{(3)}$ is a $10 \times 8$ matrix and $\textbf{b}^{(3)}$ is a $10 \times 1$ matrix.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>This is my attempt to draw a neural network for one single training example:&lt;/p></description></item><item><title>First few words</title><link>https://quanghieu31.github.io/posts/first/</link><pubDate>Mon, 19 Dec 2022 23:44:17 +0700</pubDate><guid>https://quanghieu31.github.io/posts/first/</guid><description>&lt;p>This is for Hieu in the future. Very nice working on your first web! After many weekend hours, you did it. It was thrilling learning experience. I am proud of you, please don&amp;rsquo;t be skeptical of yourself, even though I bet that you are right now haha. Anyhow, if you feel so, remember that everything is going to be daijoubu.&lt;/p>
-&lt;p>Many thanks to my bro (&lt;a href="https://cryptsu.github.io/">https://cryptsu.github.io/&lt;/a>
-) who has helped me so much during the design and development. My web structure was a mess as I had zero basic knowledge and only picked up new things along the way. He patiently taught me all the essential concepts and practices and helped me go through each of my HTML layout files and fix my errors that had taken me 1 month to find without success :D. Also, grateful for anh Hieu Phay (&lt;a href="https://hieuphay.com/en/">https://hieuphay.com/en/&lt;/a>
-), his guide showed me the rules and practices for building a good and effective website. I used to work with him in such a short time but his thinking and work ethics are still a significant part of my life compass.&lt;/p></description></item></channel></rss>
+ &lt;a class="heading-link" href="#overview"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Goal: Explain how multilayer perceptron model is trained. Mostly for me to understand the foundation.&lt;/p&gt;
+&lt;p&gt;Half of the battle is the configurations and notations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Suppose we want to classify 25x25 images and have 10 output labels $(\textbf{y})$. The data for training are labeled and cleaned.&lt;/li&gt;
+&lt;li&gt;There are $m$ instances in the data, 625 features, and 10 labels.&lt;/li&gt;
+&lt;li&gt;The data can be represented as a $m \times 625$ matrix or tabular-type. For simplicity, we will work with each single training example (i.e. some $x_0$). That is, the input layer is a $1 \times 625$. As a convention (I believe), we should transpose this matrix and get the $625 \times 1$ input layer. Then, the output layer is the activations of 10 labels which is a $10 \times 1$ matrix. Output layer notation: $\textbf{a}^{(3)} = [ [a_0^{(3)}], [a_1^{(3)}], \ldots, [a_{9}^{(3)}]]$. To be more general, let $j$ index the output matrix&amp;rsquo;s elements.&lt;/li&gt;
+&lt;li&gt;Choose 2 hidden layers: the first layer has 5 neurons and uses ReLU as the activation function and the second layer has 8 neurons and uses a softmax function. The number of neurons is arbitrarily selected. Respective layer notations: $\textbf{a}^{(1)} = [[a_0^{(1)}], [a_1^{(1)}], \ldots, [a_4^{(1)}]]$ and $\textbf{a}^{(2)} = [[a_0^{(2)}], [a_1^{(2)}], \ldots, [a_7^{(2)} ]]$. To be more general, let $k$ index the layer (2) matrix&amp;rsquo;s elements and let $h$ index the layer (1) matrix&amp;rsquo;s elements.&lt;/li&gt;
+&lt;li&gt;Choose the Mean Squared Error (MSE) loss function. For one single training example $x_i$, $ℒ_i = \sum_{j=0}^{9} (a_j^{(3)} - y_j)^{2}$. Then, the overall loss function for all training examples is $ℒ = \frac{1}{m} \sum_{i=0}^{m-1} \mathscr{L_i}$.&lt;/li&gt;
+&lt;li&gt;Choose the Stochastic Gradient Descent technique for mini-batching and randomization optimization. Iterate through each training example (or randomly selected mini-batches of examples) and compute the gradient of the loss function with respect to the $W$ and $b$ parameters using that example or mini-batch. Update the parameters with the computed gradients and a learning rate. Repeat the process for multiple iterations (epochs) until convergence or a stopping criterion is met.&lt;/li&gt;
+&lt;li&gt;Last but not least: weight and bias parameters. They appear in each of the layers except for input layer.
+&lt;ul&gt;
+&lt;li&gt;$\textbf{W}^{(1)}$ and $\textbf{b}^{(1)}$ denote the weights and biases of layer (1) in which $\textbf{W}^{(1)}$ is a $5 \times 625$ matrix and $\textbf{b}^{(1)}$ is a $5 \times 1$ matrix.&lt;/li&gt;
+&lt;li&gt;$\textbf{W}^{(2)}$ and $\textbf{b}^{(2)}$ denote the weights and biases of layer (2) in which $\textbf{W}^{(2)}$ is a $8 \times 5$ matrix and $\textbf{b}^{(2)}$ is a $8 \times 1$ matrix.&lt;/li&gt;
+&lt;li&gt;$\textbf{W}^{(3)}$ and $\textbf{b}^{(3)}$ denote the weights and biases of output layer in which $\textbf{W}^{(3)}$ is a $10 \times 8$ matrix and $\textbf{b}^{(3)}$ is a $10 \times 1$ matrix.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is my attempt to draw a neural network for one single training example:&lt;/p&gt;</description></item><item><title>First few words</title><link>https://quanghieu31.github.io/posts/first/</link><pubDate>Mon, 19 Dec 2022 23:44:17 +0700</pubDate><guid>https://quanghieu31.github.io/posts/first/</guid><description>&lt;p&gt;This is for Hieu in the future. Very nice working on your first web! After many weekend hours, you did it. It was thrilling learning experience. I am proud of you, please don&amp;rsquo;t be skeptical of yourself, even though I bet that you are right now haha. Anyhow, if you feel so, remember that everything is going to be daijoubu.&lt;/p&gt;
+&lt;p&gt;Many thanks to my bro (&lt;a href="https://cryptsu.github.io/"&gt;https://cryptsu.github.io/&lt;/a&gt;
+) who has helped me so much during the design and development. My web structure was a mess as I had zero basic knowledge and only picked up new things along the way. He patiently taught me all the essential concepts and practices and helped me go through each of my HTML layout files and fix my errors that had taken me 1 month to find without success :D. Also, grateful for anh Hieu Phay (&lt;a href="https://hieuphay.com/en/"&gt;https://hieuphay.com/en/&lt;/a&gt;
+), his guide showed me the rules and practices for building a good and effective website. I used to work with him in such a short time but his thinking and work ethics are still a significant part of my life compass.&lt;/p&gt;</description></item></channel></rss>
