@@ -6,6 +6,7 @@ enableEmoji = true
 
 [params]
   author = 'Hieu Nguyen'
+  since = 2022
   favicon_32 = "images/favicon.ico"
   colorScheme = "auto"
   avatarURL = "images/about/me.jpg"
@@ -25,28 +26,34 @@ enableEmoji = true
   pre = "<i class='fa fa-heart'></i>"
   url = '/posts/'
   weight=2
+[[menu.main]]
+  identifier = 'Thoughts'
+  name = 'Thoughts'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/thoughts/'
+  weight=3
 
 [[params.social]]
 name = "Github"
-icon = "fa fa-3x fa-github"
+icon = "fa fa-2x fa-github"
 weight = 1
 url = "https://github.com/quanghieu31"
 
 [[params.social]]
 name = "LinkedIn"
-icon = "fa fa-3x fa-brands fa-linkedin"
+icon = "fa fa-2x fa-brands fa-linkedin"
 weight = 2
 url = "https://www.linkedin.com/in/hieunguyen31/"
 
 [[params.social]]
 name = "Email"
-icon = "fa fa-3x fa-envelope"
+icon = "fa fa-2x fa-envelope"
 weight = 3
 url = "mailto:doanquanghieu.nguyen@gmail.com"
 
 [[params.social]]
 name = "Resume"
-icon = "fa-regular fa-3x fa-address-card"
+icon = "fa-regular fa-2x fa-address-card"
 weight = 4
 url = "https://drive.google.com/file/d/1O3lV8Nw9wEw6L0APWUUQXP_mvUbAEdYk/view?usp=sharing"
 

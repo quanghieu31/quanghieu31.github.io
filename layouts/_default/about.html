@@ -1,0 +1,24 @@
+{{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
+
+{{ define "content" }}
+<main class="wrapper" style="margin:0; padding:0;">
+  <div class="content" style="margin:0; padding:0;">
+    {{ .Content }}
+  </div>
+</main>
+
+<style>
+/* Remove all default spacing */
+body, html, section, article, header, h1, h2, h3, p, div, img, a {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* no gap between children */
+}
+</style>
+
+{{ end }}

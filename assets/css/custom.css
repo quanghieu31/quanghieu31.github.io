@@ -1,11 +1,38 @@
 /* Custom CSS */
-body {
+/* body {
     font-family: 'Source Sans 3', sans-serif;
 }
 
 h1, h2, h3 {
     font-family: 'Source Sans 3', sans-serif;
+} */
+
+/* Import Lora from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* Apply it globally */
+body {
+    font-family: 'Lora', serif;
 }
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+}
+
+nav.navigation h1,
+nav.navigation h2,
+nav.navigation h3 {
+    font-family: 'Lora', serif !important;
+}
+
+nav.navigation * {
+    font-family: 'Lora', serif !important;
+}
+
+a {
+    font-family: 'Lora', serif !important;
+}
+
 /* Add more custom styles as needed */
 
 code.has-jax {
@@ -33,3 +60,50 @@ code.has-jax {
     margin: 0 auto;
   }
    */
+
+main, .content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.content, 
+.container.list {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+nav.navigation {
+  margin-bottom: 0 !important;
+}
+
+.container.list header,
+.container.list header p,
+.container.list ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container.list {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.container.list header {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.container.list ul {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+

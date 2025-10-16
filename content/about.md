@@ -1,6 +1,6 @@
 ---
-title: "Xin chào, I am Hieu!"
-type: "_default"
+title: "Xin chào, I am Hiếu!"
+type: "about"
 ---
 Profiles: [GitHub](https://github.com/quanghieu31) - [LinkedIn](https://www.linkedin.com/in/hieunguyen31/) - [Email](mailto:doanquanghieu.nguyen@gmail.com) - [Resume](https://drive.google.com/file/d/1O3lV8Nw9wEw6L0APWUUQXP_mvUbAEdYk/view?usp=sharing)
 
@@ -13,6 +13,6 @@ I have teaching assistant experiences at UChicago for CAPP 30254: Machine Learni
 
 Before graduate school, I worked in database programming and program evaluation for a non-profit focused on child development in Vietnam. It was a wonderful time when I learned a great deal about civic technology and was inspired by incredible colleagues and people in the impact areas.
 
-In my free time, I enjoy watching football, cruising the local food scene, and [writing](https://quanghieu31.github.io/posts/).
+In my free time, I enjoy watching football, cruising the local food scene, and review movies.
 
 If you'd like to chat, feel free to reach out via doanquanghieu.nguyen@gmail.com or [LinkedIn](https://www.linkedin.com/in/hieunguyen31/).
