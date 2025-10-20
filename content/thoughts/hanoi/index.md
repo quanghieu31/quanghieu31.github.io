@@ -1,7 +1,7 @@
 ---
 title: "Hà Nội"
 date: 2025-10-19T23:44:17+07:00
-draft: true
+draft: false
 ---
 
 ![](/hanoi/ho-guom.png)
