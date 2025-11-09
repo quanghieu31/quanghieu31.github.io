@@ -1,6 +1,6 @@
 ---
 title: "What's the most important thing?"
-date: 2025-02-12T23:44:17+07:00
+date: 2025-11-08T23:44:17+07:00
 draft: false
 ---
 
