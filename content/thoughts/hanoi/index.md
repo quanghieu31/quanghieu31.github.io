@@ -18,6 +18,6 @@ Now, being an adult and after years of being abroad, I think the Hà Nội part 
 
 Hà Nội has its flaws, but it’s never been perfect and never will be. For many subjective reasons, it has its own charms, quiet, peaceful moments amid the bustling streets and the shouts from everywhere. I try not to romanticize it, but how could you not?
 
-Hà Nội, out of context: When life gives you no milk, you take the egg yolks and turn them into the hell out of café au lait—so-called [egg coffee](https://nguyencoffeesupply.com/blogs/news/history-of-vietnamese-egg-coffee?srsltid=AfmBOoqWBrrH15miU4E6MEHnvHssBErFXaSEETWMGuJIByoq2SfEQ7oo).
+Hà Nội, out of context: When life gives you no milk, you take the egg yolks and turn them into the hell out of café au lait—so-called [egg coffee](https://nguyencoffeesupply.com/blogs/news/history-of-vietnamese-egg-coffee?srsltid=AfmBOoqWBrrH15miU4E6MEHnvHssBErFXaSEETWMGuJIByoq2SfEQ7oo). It's the rawest experience, literally.
 
 ![](/hanoi/egg-coffee.jpg)

@@ -1,0 +1,21 @@
+---
+title: "What's the most important thing?"
+date: 2025-02-12T23:44:17+07:00
+draft: true
+---
+
+I realize how naive and indefinitive the question is. It's certainly a subjective experience and what I share is completely based on my own, and it might be flawed or untrue to others. My apology. 
+
+I've been pondering this question more intensively recently, but I think it's begun as I progressed to become more self-aware, and observant of my connections with the world, or how I present myself to the world. It's about a few elements- time, people, and me. 
+
+Time. I think someone said this, life has meaning because it ends. As the days go by, we wake up and build something, until a sudden moment that happens and changes our life completely, then do we realize what we are missing? What do we want to do the most? In our constrained amount of hours per day, who do we want to spend with? what do we want to do during? Many people said to me that, young people should suffer, sacrifire so that they can be more comfortable in the future. I understand that, we need to optimize our youth to work hard, seize the day, carpe diem, to make sure not only ourselves, but also people who depend on us could also be more comfortable. Fight now, rest later. But at the same time, I heard so many stories about young people had to end their life too early, due to sickness or accidents, unintentional causes. On a sunny sunday in April, a few moments before death, "23-year-old Ella's breathing started to slow down", "we were all together, we hugged her, we kissed her, we loved her, we told her she should go when we was ready", "Ella took her last breath only 3 and a half months after being diagnosed with SDSC" ([source](https://youtu.be/VHkrLMd5wmA?si=3hbFDKBFrzm_kEiM)). These are very much unpredictable. Data couldn't save us, prediction failed in rare cases which could happen to any of us. Time is a consistent concept, produces meaning for us on alive days, but could also be brutal when it has to. 
+
+People. You can only meet so many people in your lifetime. If you have other constraints, no responsibilities, no nothing, and can choose to spend your eternity with some people you choose, who would you do it with? For me, I would always choose the love of my life who is my partner, adventure companion, significant other, my dearest sweetheart, who has been with me through ups and downs ever since I started to feel what's like to love someone deeply. She is always my #1 motivation for me to hold on and just keep on. Saying so sounds like a huge statement, but I honestly feel that way. To that question, also, I would choose my family as well, my parents and sister. My parents are not the most perfect, ideal types, but I understand that they are doing your best, and I can always rely on them in my most vulnerable and stressful times. My sister, who I endear all my life, who I can literally fight anything that ever makes her sad. She is a gem of a person, a compassionate and loving person. My childhood friend, who is the most considerate and wholesome person I ever known, the only person can endure me for me being late to responding messages or be there when I need to rant. In the end, I can't imagine myself without these people, they give meaning to my life. 
+
+Me. Why me? I wake up everday, working towards something, being conflicted by the brutality of time and unpredictability and the idea of wanting to be closer to my loved ones. In other words, I sometimes feel scared. But who knows what will happen!? It's always a mystery.  "It turns out life isn't a puzzle that can be solved one time and it’s done. You wake up every day, and you solve it again" – Chidi Anagonye, The Good Place S4E9. Also, in response to that, "It's terribly inefficient" - Michael, The Good Place S4E9; I agree, Michael. I guess, me, being a person living on this earth, in this universe, in this lifetime, is both a mediocre and equally important experience. ["you contain multitudes"](https://letterboxd.com/nguyen_hieu/film/the-life-of-chuck/) - I contain everything in the universe created, making my own experience unique and wonderful, thanks to the time and people I love.
+
+So, what's the most important thing? It's time, people, and me. 
+
+Sometimes, it's bánh xèo:
+
+![](/important/banhxeo.jpg)
