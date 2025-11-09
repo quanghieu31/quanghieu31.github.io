@@ -1,7 +1,7 @@
 ---
 title: "What's the most important thing?"
 date: 2025-02-12T23:44:17+07:00
-draft: true
+draft: false
 ---
 
 I realize how naive and indefinitive the question is. It's certainly a subjective experience and what I share is completely based on my own, and it might be flawed or untrue to others. My apology. 
