@@ -9,3 +9,13 @@ This is for Hieu in the future. Very nice working on your first web! After many 
 Many thanks to my bro ([https://cryptsu.github.io/](https://cryptsu.github.io/)) who has helped me so much during the design and development. My web structure was a mess as I had zero basic knowledge and only picked up new things along the way. He patiently taught me all the essential concepts and practices and helped me go through each of my HTML layout files and fix my errors that had taken me 1 month to find without success :D. Also, grateful for anh Hieu Phay ([https://hieuphay.com/en/](https://hieuphay.com/en/)), his guide showed me the rules and practices for building a good and effective website. I used to work with him in such a short time but his thinking and work ethics are still a significant part of my life compass.
 
 I feel lucky to get to know many kind and smart people. I hope to improve myself more and will not need their help too much! Let's see what Hieu-in-the-future will be like in terms of knowledge maturity and personal growth. Allons-y!
+
+Updated (cont.) - List of cool people I came across online:
+
+- https://cryptsu.github.io/
+- https://hieuphay.com/en/
+- https://trongdle.github.io/
+- https://eugeneyan.com/
+- https://lanphgphm.github.io/
+- https://www.darioamodei.com/essay/the-adolescence-of-technology 
+- https://medium.com/@binhquangdo/data-analyst-to-scientist-way-b2a1dc85664b 
