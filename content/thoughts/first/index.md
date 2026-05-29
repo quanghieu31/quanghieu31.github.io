@@ -10,12 +10,15 @@ Many thanks to my bro ([https://cryptsu.github.io/](https://cryptsu.github.io/))
 
 I feel lucky to get to know many kind and smart people. I hope to improve myself more and will not need their help too much! Let's see what Hieu-in-the-future will be like in terms of knowledge maturity and personal growth. Allons-y!
 
-Updated (cont.) - List of cool people I came across online:
+Updated (cont.) List of cool people I came across online:
 
 - https://cryptsu.github.io/
 - https://hieuphay.com/en/
+- https://hyhieu.github.io/blog/index
+- https://quangtiencs.com/ 
+- https://soliloqui.vn/
 - https://trongdle.github.io/
 - https://eugeneyan.com/
 - https://lanphgphm.github.io/
 - https://www.darioamodei.com/essay/the-adolescence-of-technology 
-- https://medium.com/@binhquangdo/data-analyst-to-scientist-way-b2a1dc85664b 
+- https://medium.com/sss@binhquangdo/data-analyst-to-scientist-way-b2a1dc85664b 
